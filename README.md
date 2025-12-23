@@ -1,62 +1,90 @@
 # T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation
 
-[**Project Page**](https://github.com/NJU-LINK/T2AV-Compass)
+[![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://github.com/NJU-LINK/T2AV-Compass)
+[![Dataset](https://img.shields.io/badge/🤗-Dataset-yellow)](https://huggingface.co/datasets/NJU-LINK/T2AV-Compass)
+[![arXiv](https://img.shields.io/badge/arXiv-Paper-red)](https://arxiv.org/)
+
+> 中文版：[README_cn.md](README_cn.md)
+
+## 📖 Abstract
 
 **T2AV-Compass** is a unified benchmark for evaluating **Text-to-Audio-Video (T2AV)** generation, targeting not only unimodal quality (video/audio) but also cross-modal alignment & synchronization, complex instruction following, and perceptual realism grounded in physical/common-sense constraints.
 
-This package includes 500 taxonomy-driven prompts and fine-grained checklists for an MLLM-as-a-Judge protocol.
+Text-to-Audio-Video (T2AV) generation aims to synthesize temporally coherent video and semantically synchronized audio from natural language, yet its evaluation remains fragmented, often relying on unimodal metrics or narrowly scoped benchmarks that fail to capture cross-modal alignment, instruction following, and perceptual realism under complex prompts.
 
-> 中文版：`README.md`
+This package includes **500 taxonomy-driven prompts** and fine-grained checklists for an **MLLM-as-a-Judge** protocol.
 
-## 🌟 Key Features (as described in the paper)
+## 🌟 Key Features
 
-- **Taxonomy-driven prompt curation**: 500 diverse, long-horizon, semantically rich prompts with constraints over cinematography, physical causality, and acoustic environments.
-- **Dual-level evaluation framework**:
-  - **Objective evaluation**: signal-level metrics for video quality, audio quality, and cross-modal alignment/synchronization.
-  - **Subjective evaluation (MLLM-as-a-Judge)**: interpretable checklist-based assessment for **instruction following** and **perceptual realism**.
+- **Taxonomy-Driven High-Complexity Benchmark**: 500 semantically dense prompts synthesized through a hybrid pipeline of taxonomy-based curation and video inversion. It targets fine-grained audiovisual constraints—such as off-screen sound and physical causality—frequently overlooked in existing evaluations.
+
+- **Unified Dual-Level Evaluation Framework**:
+  - **Objective evaluation**: Video quality (VT, VA), Audio quality (PQ, CU), Cross-modal alignment (T-A, T-V, A-V, DeSync, LatentSync)
+  - **Subjective evaluation (MLLM-as-a-Judge)**: Interpretable checklist-based assessment for **Instruction Following** and **Perceptual Realism**
+
+- **Extensive Benchmarking**: Systematic evaluation of 11 state-of-the-art T2AV systems, including Veo-3.1, Sora-2, Kling-2.6, Wan-2.5/2.6, Seedance-1.5, PixVerse-V5.5, Ovi-1.1, JavisDiT, and composed pipelines.
+
+## 📊 Evaluation Metrics
+
+### Objective Metrics
+
+| Category | Metric | Description |
+|----------|--------|-------------|
+| **Video Quality** | VT (Video Technological) | Low-level visual integrity via DOVER++ |
+| | VA (Video Aesthetic) | High-level perceptual attributes via LAION-Aesthetic V2.5 |
+| **Audio Quality** | PQ (Perceptual Quality) | Signal fidelity and acoustic realism |
+| | CU (Content Usefulness) | Semantic validity and information density |
+| **Cross-modal Alignment** | T-A | Text–Audio alignment via CLAP |
+| | T-V | Text–Video alignment via VideoCLIP-XL-V2 |
+| | A-V | Audio–Video alignment via ImageBind |
+| | DS (DeSync) | Temporal synchronization error (lower is better) |
+| | LS (LatentSync) | Lip-sync quality for talking-face scenarios |
+
+### Subjective Metrics (MLLM-as-a-Judge)
+
+**Instruction Following (IF)** - 7 dimensions, 17 sub-dimensions:
+- **Attribute**: Look, Quantity
+- **Dynamics**: Motion, Interaction, Transformation, Camera Motion
+- **Cinematography**: Light, Frame, Color Grading
+- **Aesthetics**: Style, Mood
+- **Relations**: Spatial, Logical
+- **World Knowledge**: Factual Knowledge
+- **Sound**: Sound Effects, Speech, Music
+
+**Realism** - 5 metrics:
+- **Video**: MSS (Motion Smoothness), OIS (Object Integrity), TCS (Temporal Coherence)
+- **Audio**: AAS (Acoustic Artifacts), MTC (Material-Timbre Consistency)
 
 ## 📦 Files
 
-- `prompts_with_checklist.json`: the core benchmark data (500 prompts + checklists).
+- `prompts_with_checklist.json`: Core benchmark data (500 prompts + checklists)
 
-## 🧩 Schema of `prompts_with_checklist.json` (brief)
+## 🧩 Data Schema
 
-Each sample is a JSON object with the key fields below:
+Each sample is a JSON object with the following fields:
 
-| Field | Type | Notes |
-|---|---|---|
-| `index` | int | sample id (1–500) |
-| `source` | str | source tag (e.g., `LMArena`, `RealVideo`) |
-| `subject_matter` | str | theme/genre |
-| `core_subject` | list[str] | subject taxonomy (People/Objects/Animals/…) |
-| `event_scenario` | list[str] | scenario taxonomy (Urban/Living/Natural/Virtual/…) |
-| `sound_type` | list[str] | sound taxonomy (Ambient/Musical/Speech/…) |
-| `camera_movement` | list[str] | camera motion taxonomy (Static/Translation/Zoom/…) |
-| `prompt` | str | **integrated prompt** (visual + audio + speech) |
-| `video_prompt` | str | video-only prompt |
-| `audio_prompt` | str | non-speech audio prompt (can be empty) |
-| `speech_prompt` | list[object] | structured speech (can be empty); items contain `speaker`/`description`/`text` |
-| `video` | str | reference video path (optional; empty if none) |
-| `checklist_info` | object | checklist used by MLLM-as-a-Judge (see below) |
+| Field | Type | Description |
+|-------|------|-------------|
+| `index` | int | Sample ID (1–500) |
+| `source` | str | Source tag (e.g., `LMArena`, `RealVideo`, `VidProM`, `Kling`, `Shot2Story`) |
+| `subject_matter` | str | Theme/genre |
+| `core_subject` | list[str] | Subject taxonomy (People/Objects/Animals/…) |
+| `event_scenario` | list[str] | Scenario taxonomy (Urban/Living/Natural/Virtual/…) |
+| `sound_type` | list[str] | Sound taxonomy (Ambient/Musical/Speech/…) |
+| `camera_movement` | list[str] | Camera motion taxonomy (Static/Translation/Zoom/…) |
+| `prompt` | str | **Integrated prompt** (visual + audio + speech) |
+| `video_prompt` | str | Video-only prompt |
+| `audio_prompt` | str | Non-speech audio prompt (can be empty) |
+| `speech_prompt` | list[object] | Structured speech with `speaker`/`description`/`text` |
+| `video` | str | Reference video path (optional) |
+| `checklist_info` | object | Checklist for MLLM-as-a-Judge |
 
-### `checklist_info`: 7 diagnostic dimensions
+## 🧠 Model Adaptation
 
-Each sub-item is a natural-language yes/no question; `null` means not applicable:
-
-- **Aesthetics** (style/mood)
-- **Attribute** (appearance/quantity)
-- **Cinematography** (lighting/framing/color grading)
-- **Dynamics** (motion/interaction/transformation/camera motion)
-- **Relations** (spatial/logical coherence)
-- **Sound** (SFX/speech/music/non-speech constraints)
-- **WorldKnowledge** (commonsense/physical plausibility/facts)
-
-## 🧠 Prompt formatting for different model designs
-
-- **Unified end-to-end T2AV models**: use `prompt`
+- **End-to-end T2AV models** (e.g., Veo, Kling): Use `prompt`
 - **Two-stage / modular pipelines**:
-  - video model: `video_prompt`
-  - audio model: `audio_prompt`
+  - Video model: `video_prompt`
+  - Audio model: `audio_prompt`
   - TTS / speech: `speech_prompt`
 
 ## 🚀 Quick Start
@@ -68,22 +96,36 @@ with open("prompts_with_checklist.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 item = data[0]
-print(item["prompt"])
-print(item["video_prompt"])
-print(item["audio_prompt"])
-print(item["speech_prompt"])
-print(item["checklist_info"].keys())
+print(f"Prompt: {item['prompt'][:200]}...")
+print(f"Video Prompt: {item['video_prompt'][:200]}...")
+print(f"Audio Prompt: {item['audio_prompt']}")
+print(f"Speech Prompt: {item['speech_prompt']}")
+print(f"Checklist Dimensions: {list(item['checklist_info'].keys())}")
 ```
 
 ## 📈 Citation
 
-If you find this work useful, please cite (please follow the final paper version for exact metadata):
+If you find this work useful, please cite:
 
 ```bibtex
-@article{t2av_compass2025,
-  title   = {T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation},
-  author  = {NJU-LINK Team},
-  year    = {2025}
+@misc{cao2025t2avcompass,
+  title        = {T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation},
+  author       = {Cao, Zhe and Wang, Tao and Wang, Jiaming and Wang, Yanghai and Zhang, Yuanxing and Chen, Jialu and Deng, Miao and Wang, Jiahao and Guo, Yubin and Liao, Chenxi and Zhang, Yize and Zhang, Zhaoxiang and Liu, Jiaheng},
+  year         = {2025},
+  note         = {Preprint},
 }
 ```
 
+## 🔗 Links
+
+- **Project Page**: [github.com/NJU-LINK/T2AV-Compass](https://github.com/NJU-LINK/T2AV-Compass)
+- **Dataset**: [huggingface.co/datasets/NJU-LINK/T2AV-Compass](https://huggingface.co/datasets/NJU-LINK/T2AV-Compass)
+
+## 📧 Contact
+
+- `zhecao@smail.nju.edu.cn`
+- `liujiaheng@nju.edu.cn`
+
+---
+
+**NJU-LINK Team, Nanjing University** · **Kling Team, Kuaishou Technology** · **Institute of Automation, Chinese Academy of Sciences**

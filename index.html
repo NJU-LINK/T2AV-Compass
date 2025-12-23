@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T2AV-Compass</title>
+  <meta name="description" content="T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation" />
+  <link rel="icon" type="image/svg+xml" href="./static/images/favicon.svg" />
+  <link rel="stylesheet" href="./static/css/style.css" />
+</head>
+<body>
+  <main class="container">
+    
+<section class="hero">
+  <h1 class="title">
+    <img class="title-icon" src="./static/images/title-icon.png" alt="T2AV icon" />
+    <span>T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation</span>
+  </h1>
+
+  <div class="authorline">
+    <div class="authorrows">
+      <div class="authorrow">
+        <a href="#" class="author">Zhe Cao</a><sup>1, *</sup>,
+        <a href="#" class="author">Tao Wang</a><sup>1, *</sup>,
+        <a href="#" class="author">Jiaming Wang</a><sup>1, *</sup>,
+        <a href="#" class="author">Yanghai Wang</a><sup>1, *</sup>
+      </div>
+      <div class="authorrow">
+        <a href="#" class="author">Yuanxing Zhang</a><sup>2</sup>,
+        <a href="#" class="author">Jialu Chen</a><sup>2</sup>,
+        <a href="#" class="author">Miao Deng</a><sup>1</sup>,
+        <a href="https://wang-jiahao.github.io/" class="author">Jiahao Wang</a><sup>1</sup>,
+        <a href="#" class="author">Yubin Guo</a><sup>1</sup>
+      </div>
+      <div class="authorrow">
+        <a href="#" class="author">Chenxi Liao</a><sup>1</sup>,
+        <a href="#" class="author">Yize Zhang</a><sup>1</sup>,
+        <a href="#" class="author">Zhaoxiang Zhang</a><sup>3</sup>,
+        <a href="https://liujiaheng.github.io/" class="author">Jiaheng Liu</a><sup>1, †</sup>
+      </div>
+    </div>
+  </div>
+
+  <div class="affils">
+    <div><sup>1</sup> NJU-LINK Team, Nanjing University</div>
+    <div><sup>2</sup> Kling Team, Kuaishou Technology</div>
+    <div><sup>3</sup> Institute of Automation, Chinese Academy of Sciences</div>
+    <div class="note"><sup>*</sup> Equal Contribution &nbsp;&nbsp; <sup>†</sup> Corresponding Author</div>
+    <div class="note emails"><code>zhecao@smail.nju.edu.cn</code> · <code>liujiaheng@nju.edu.cn</code></div>
+  </div>
+
+  <div class="btnrow">
+    <a class="pbtn" href="#" title="Replace with arXiv link"><img class="ico" src="./static/images/arxiv-logomark-small.svg" alt="arXiv" /><span>arXiv</span></a>
+    <a class="pbtn" href="https://github.com/NJU-LINK/T2AV-Compass" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>Code</span></a>
+    <a class="pbtn" href="https://huggingface.co/datasets/NJU-LINK/T2AV-Compass" target="_blank" rel="noopener"><span class="btn-emoji">🤗</span><span>Dataset</span></a>
+    <a class="pbtn" href="#leaderboard"><span class="btn-emoji">🏆</span><span>Leaderboard</span></a>
+  </div>
+
+  <div class="mininav">
+    <a href="#abstract">Abstract</a>
+    <span>·</span>
+    <a href="#leaderboard">Leaderboard</a>
+    <span>·</span>
+    <a href="#compass">Benchmark</a>
+    <span>·</span>
+    <a href="#casestudy">Case Study</a>
+    <span>·</span>
+    <a href="#citation">BibTeX</a>
+  </div>
+</section>
+
+  <!-- Top-left NJU-LINK badge -->
+  <a class="corner-badge" href="https://github.com/NJU-LINK" target="_blank" rel="noopener">
+    <img src="./static/images/njulinkv6.jpg" alt="NJU-LINK Team" />
+  </a>
+
+
+    <section class="section" id="abstract">
+      <h2>Abstract</h2>
+      <p>
+        Text-to-Audio-Video (T2AV) generation aims to synthesize temporally coherent video and semantically synchronized audio from natural language, yet its evaluation remains fragmented, often relying on unimodal metrics or narrowly scoped benchmarks that fail to capture cross-modal alignment, instruction following, and perceptual realism under complex prompts. To address this limitation, we present <b>T2AV-Compass</b>, a unified benchmark for comprehensive evaluation of T2AV systems, consisting of 500 diverse and complex prompts constructed via a taxonomy-driven pipeline to ensure semantic richness and physical plausibility. Besides, T2AV-Compass introduces a dual-level evaluation framework that integrates objective signal-level metrics for video quality, audio quality, and cross-modal alignment with a subjective MLLM-as-a-Judge protocol for instruction following and realism assessment. Extensive evaluation of 11 representative T2AV systems reveals that even the strongest models fall substantially short of human-level realism and cross-modal consistency, with persistent failures in audio realism, fine-grained synchronization, instruction following, and etc. These results indicate significant improvement room for future models and highlight the value of T2AV-Compass as a challenging and diagnostic testbed for advancing text-to-audio-video generation.
+      </p>
+    </section>
+
+    <section class="section" id="figure1">
+      <h2>Overview</h2>
+      <figure class="card figure">
+        <img src="./static/images/main_00.jpg" alt="Main overview figure" />
+        <figcaption>
+          <b>Overview of T2AV-Compass analysis and evaluation taxonomy.</b>
+          (a) Radial comparison of representative T2AV models under our evaluation suite.
+          (b) Prompt token-length distribution.
+          (c–d) Semantic diversity of video/audio prompts quantified via embedding similarity (higher indicates broader coverage).
+          (e) Hierarchical distribution of evaluation dimensions, clearly organizing objective metrics and MLLM-based assessments across video, audio, and cross-modal alignment.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="intro">
+      <h2>Introduction</h2>
+      <p>
+        Generative AI has witnessed a paradigm shift from unimodal synthesis to cohesive multimodal content creation,
+        with Text-to-Audio-Video (T2AV) generation emerging as a frontier that unifies visual dynamics and auditory realism.
+      </p>
+      <p>
+        Recent breakthroughs, from proprietary systems like Sora and Veo to open research efforts,
+        have demonstrated the ability to generate high-fidelity audio-video pairs from textual prompts.
+      </p>
+      <p>
+        Despite this rapid progress, <b>the evaluation of T2AV systems remains fundamentally underdeveloped.</b>
+        These challenges are exacerbated by the intrinsic complexity of T2AV generation.
+        Specifically, high-quality output requires simultaneous success along multiple axes: unimodal perceptual quality,
+        cross-modal semantic alignment, precise temporal synchronization, instruction following under compositional constraints,
+        and realism grounded in physical and commonsense knowledge.
+      </p>
+      <blockquote>
+        Current evaluations struggle to answer core questions: Do generated sounds correspond to visible events? Are multiple audio sources synchronized with complex visual interactions?
+        Does the model faithfully follow detailed instructions while maintaining physical and perceptual realism?
+      </blockquote>
+      <p>
+        To address this gap, we introduce <b>T2AV-Compass</b>,
+        the first comprehensive benchmark designed specifically for evaluating text-to-audio-video generation.
+      </p>
+      <p>
+        T2AV-Compass employs a taxonomy-driven curation pipeline to construct 500 complex prompts and ensure broad semantic
+        coverage and challenging audiovisual scenarios. These prompts impose precise constraints across cinematography, physical causality, and acoustic
+        environments, ensuring coverage of diverse and challenging scenarios—from multi-source sound mixing to long narrative event chains.
+      </p>
+      <p>
+        Second, we propose a dual-level evaluation Framework that integrates objective evaluation based on classical automated metrics
+        with subjective evaluation based on MLLM-as-judge. The objective evaluation quantifies video quality (technical fidelity, aesthetic appeal),
+        audio quality (acoustic realism, semantic usefulness), and cross-modal alignment (text-audio/video semantic consistency, temporal synchronization).
+        The subjective evaluation mainly evaluates video and audio instruction following abilities based on well-defined checklists and perceptual realism
+        (e.g., physical plausibility and fine-grained details), which aims to address the limitations of automated metrics in capturing nuanced semantic and causal coherence.
+      </p>
+
+      <h3>Contributions</h3>
+      <ul>
+        <li>
+          <b>Taxonomy-Driven High-Complexity Benchmark:</b>
+          We introduce <em>T2AV-Compass</em>, a benchmark comprising 500 semantically dense prompts synthesized through a hybrid pipeline of taxonomy-based
+          curation and video inversion. It targets fine-grained audiovisual constraints—such as off-screen sound and physical causality—frequently overlooked
+          in existing evaluations.
+        </li>
+        <li>
+          <b>Unified Dual-Level Evaluation Framework:</b>
+          We propose a paradigm that integrates objective signal metrics with a novel <em>MLLM-as-a-Judge</em> protocol. By employing a reasoning-first
+          diagnostic mechanism based on granular QA checklists and violation checks (e.g., Material-Timbre Consistency), our framework bridges the gap
+          between low-level fidelity and high-level semantic logic with enhanced interpretability.
+        </li>
+        <li>
+          <b>Extensive Benchmarking and Empirical Insights:</b>
+          We conduct a systematic evaluation of 11 state-of-the-art T2AV systems, including leading proprietary models like Veo-3.1 and Kling-2.6.
+          Our analysis unveils a critical "Audio Realism Bottleneck," revealing that current models struggle to synthesize physically grounded audio textures
+          that match the fidelity of their visual counterparts.
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" id="leaderboard">
+      <h2>Leaderboard</h2>
+      <p class="muted">Tables mirror the main results in the paper. Best values are highlighted.</p>
+
+      <h3>Objective metrics</h3>
+      <div class='tablewrap'><table>
+<thead><tr><th>Method</th><th>Open-Source</th><th>VT↑</th><th>VA↑</th><th>PQ↑</th><th>CU↑</th><th>A-V↑</th><th>T-A↑</th><th>T-V↑</th><th>DS↓</th><th>LS↑</th></tr></thead><tbody>
+<tr class='group'><td colspan='11'>— T2AV</td></tr>
+<tr><td>Veo-3.1</td><td>✗</td><td><mark class='best'>13.39</mark></td><td>5.425</td><td>7.015</td><td>6.621</td><td>0.2856</td><td>0.2335</td><td>0.2438</td><td>0.6776</td><td>1.509</td></tr>
+<tr><td>Sora-2</td><td>✗</td><td>7.568</td><td>4.112</td><td>5.827</td><td>5.340</td><td>0.2419</td><td>0.2484</td><td>0.2432</td><td>0.8100</td><td>1.331</td></tr>
+<tr><td>Kling-2.6</td><td>✗</td><td>11.41</td><td>5.417</td><td>6.882</td><td>6.449</td><td>0.2495</td><td>0.2495</td><td>0.2449</td><td>0.7852</td><td>1.502</td></tr>
+<tr><td>Wan-2.6</td><td>✗</td><td>11.87</td><td>4.605</td><td>6.658</td><td>6.222</td><td>0.2149</td><td>0.2572</td><td>0.2451</td><td>0.8818</td><td>1.081</td></tr>
+<tr><td>Seedance-1.5</td><td>✗</td><td>12.74</td><td>5.007</td><td><mark class='best'>7.555</mark></td><td><mark class='best'>7.250</mark></td><td><mark class='best'>0.2875</mark></td><td>0.2320</td><td>0.2370</td><td>0.8650</td><td><mark class='best'>1.560</mark></td></tr>
+<tr><td>Wan-2.5</td><td>✗</td><td>13.29</td><td>4.642</td><td>6.469</td><td>5.869</td><td>0.2026</td><td>0.2445</td><td><mark class='best'>0.2470</mark></td><td>0.8810</td><td>1.065</td></tr>
+<tr><td>Pixverse-V5.5</td><td>✗</td><td>11.54</td><td>4.558</td><td>6.108</td><td>5.855</td><td>0.1816</td><td>0.2305</td><td>0.2431</td><td><mark class='best'>0.6627</mark></td><td>1.306</td></tr>
+<tr><td>Ovi-1.1</td><td>✓</td><td>9.336</td><td>4.368</td><td>6.569</td><td>6.492</td><td>0.1620</td><td>0.1756</td><td>0.2391</td><td>0.9624</td><td>1.191</td></tr>
+<tr><td>JavisDiT</td><td>✓</td><td>6.850</td><td>3.575</td><td>4.299</td><td>5.204</td><td>0.1284</td><td>0.1257</td><td>0.2320</td><td>1.322</td><td>--</td></tr>
+<tr class='group'><td colspan='11'>— T2V + TV2A</td></tr>
+<tr><td>Wan-2.2 + Hunyuan-Foley</td><td>✓</td><td>13.43</td><td><mark class='best'>5.605</mark></td><td>6.497</td><td>6.208</td><td>0.2575</td><td>0.2076</td><td>0.2455</td><td>0.7935</td><td>0.6978</td></tr>
+<tr class='group'><td colspan='11'>— T2A + TA2V</td></tr>
+<tr><td>AudioLDM2 + MTV</td><td>✓</td><td>8.066</td><td>3.458</td><td>6.406</td><td>6.100</td><td>0.1639</td><td><mark class='best'>0.2698</mark></td><td>0.2394</td><td>1.1592</td><td>0.6835</td></tr>
+</tbody></table></div>
+      <p class="small">VT: Video Technological · VA: Video Aesthetic · PQ: Perceptual Quality · CU: Content Usefulness · A–V/T–A/T–V: alignment · DS: DeSync (lower is better) · LS: LatentSync.</p>
+
+      <h3>Subjective evaluation</h3>
+      <div class='tablewrap'><table>
+<thead><tr><th>Method</th><th>Open-Source</th><th>IF Video↑</th><th>IF Audio↑</th><th>Video Realism↑</th><th>Audio Realism↑</th><th>Average↑</th></tr></thead><tbody>
+<tr class='group'><td colspan='7'>— T2AV</td></tr>
+<tr><td>Veo-3.1</td><td>✗</td><td>76.15</td><td>67.90</td><td>87.14</td><td>49.95</td><td><mark class='best'>70.29</mark></td></tr>
+<tr><td>Sora-2</td><td>✗</td><td>74.93</td><td>72.86</td><td>85.53</td><td>46.01</td><td>69.83</td></tr>
+<tr><td>Kling-2.6</td><td>✗</td><td>73.72</td><td>63.89</td><td>87.98</td><td>47.03</td><td>68.16</td></tr>
+<tr><td>Wan-2.6</td><td>✗</td><td><mark class='best'>78.52</mark></td><td><mark class='best'>74.95</mark></td><td>82.05</td><td>35.18</td><td>67.68</td></tr>
+<tr><td>Seedance-1.5</td><td>✗</td><td>60.96</td><td>61.22</td><td>88.94</td><td><mark class='best'>53.84</mark></td><td>66.24</td></tr>
+<tr><td>Wan-2.5</td><td>✗</td><td>76.56</td><td>57.95</td><td>76.00</td><td>35.06</td><td>61.39</td></tr>
+<tr><td>Pixverse-V5.5</td><td>✗</td><td>65.13</td><td>53.31</td><td>69.37</td><td>33.58</td><td>55.35</td></tr>
+<tr><td>Ovi-1.1</td><td>✓</td><td>55.05</td><td>52.83</td><td>65.93</td><td>30.75</td><td>51.14</td></tr>
+<tr><td>JavisDiT</td><td>✓</td><td>32.56</td><td>15.26</td><td>34.97</td><td>14.85</td><td>24.41</td></tr>
+<tr class='group'><td colspan='7'>— T2V + TV2A</td></tr>
+<tr><td>Wan-2.2 + Hunyuan-Foley</td><td>✓</td><td>64.54</td><td>38.19</td><td><mark class='best'>89.63</mark></td><td>41.25</td><td>58.40</td></tr>
+<tr class='group'><td colspan='7'>— T2A + TA2V</td></tr>
+<tr><td>AudioLDM2 + MTV</td><td>✓</td><td>47.13</td><td>54.39</td><td>56.73</td><td>31.90</td><td>47.54</td></tr>
+</tbody></table></div>
+      <p class="small">IF: instruction following. Realism measures perceptual plausibility and fine-grained details.</p>
+    </section>
+
+    <section class="section" id="related">
+      <h2>Related Work</h2>
+
+      <p>
+        Benchmarking has evolved from unimodal quality assessment to multimodal, reference-free evaluation of cross-modal consistency.
+        Early work on video generation primarily focused on intrinsic visual fidelity and text–video relevance.
+        More recent benchmarks extend this paradigm to audio and audio–video generation, explicitly stressing temporal alignment and fine-grained semantic controllability.
+      </p>
+
+      <h3>Unimodal evaluation</h3>
+      <p>
+        Video benchmarks such as VBench assess visual fidelity, motion quality, and text–video alignment with multi-dimensional rubrics,
+        while text-to-audio benchmarks such as TTA-Bench focus on perceptual quality and robustness through large-scale human annotations.
+        However, unimodal metrics cannot reliably determine whether generated audio and video remain consistent in timing, spatial cues, and semantic content.
+      </p>
+
+      <h3>Emerging text-to-audio-video generation benchmarks</h3>
+      <p>
+        As shown in the table, recent efforts introduce evaluation sets tailored for joint audio–video generation.
+        JavisBench focuses on diverse open-domain audio–video generation and spatio-temporal alignment stress tests,
+        while Verse-Bench and Harmony-Bench provide structured test suites to probe synchronized generation across different acoustic scenarios.
+        VABench proposes a multi-dimensional framework combining expert-model metrics with MLLM-based evaluation, covering multiple tasks and content categories.
+      </p>
+      <p>
+        Nevertheless, existing benchmarks often necessitate trade-offs between (i) fine-grained semantic taxonomy,
+        (ii) scalable, interpretable judging signals, and (iii) balanced coverage of diverse coupling phenomena
+        (e.g., multi-source sound mixing, physical plausibility, and commonsense consistency). These limitations motivate the development of T2AV-Compass.
+      </p>
+
+      <div class='tablewrap'><table style='min-width:980px'>
+<thead><tr><th>Benchmark</th><th>Task</th><th>Items</th><th>#Metrics</th><th>Avg Tokens./Sub./Events.</th><th>Sound Types</th><th>Eval. Dimensions</th></tr></thead><tbody>
+<tr><td>VBench</td><td>T2V</td><td>946</td><td>16</td><td>10 / 1.34 / 1.06</td><td>–</td><td><span class='pill' style='background:#dbeafe'><b>VQ</b></span></td></tr>
+<tr><td>TTA-Bench</td><td>T2A</td><td>2,999</td><td>10</td><td>20 / 2.86 / 1.68</td><td><span class='pill' style='background:#fef9c3'><b>Sound</b></span> <span class='pill' style='background:#dcfce7'><b>Music</b></span> <span class='pill' style='background:#fee2e2'><b>Speech</b></span></td><td><span class='pill' style='background:#dcfce7'><b>AQ</b></span></td></tr>
+<tr><td>JavisBench</td><td>T2AV</td><td>10,140</td><td>5</td><td>65 / 3.68 / 1.78</td><td>–</td><td><span class='pill' style='background:#dbeafe'><b>VQ</b></span> <span class='pill' style='background:#dcfce7'><b>AQ</b></span> <span class='pill' style='background:#ede9fe'><b>CMA</b></span></td></tr>
+<tr><td>Verse-Bench</td><td>TI2AV</td><td>600</td><td>4</td><td>68 / 2.01 / 1.38</td><td>–</td><td><span class='pill' style='background:#dbeafe'><b>VQ</b></span> <span class='pill' style='background:#dcfce7'><b>AQ</b></span> <span class='pill' style='background:#ede9fe'><b>CMA</b></span></td></tr>
+<tr><td>Harmony-Bench</td><td>TI2AV</td><td>150</td><td>6</td><td>🔒</td><td><span class='pill' style='background:#fee2e2'><b>Speech</b></span></td><td><span class='pill' style='background:#dbeafe'><b>VQ</b></span> <span class='pill' style='background:#dcfce7'><b>AQ</b></span> <span class='pill' style='background:#ede9fe'><b>CMA</b></span></td></tr>
+<tr><td>UniAVGen</td><td>TIA2V</td><td>100</td><td>3</td><td>🔒</td><td><span class='pill' style='background:#fee2e2'><b>Speech</b></span></td><td><span class='pill' style='background:#dbeafe'><b>VQ</b></span> <span class='pill' style='background:#dcfce7'><b>AQ</b></span> <span class='pill' style='background:#ede9fe'><b>CMA</b></span></td></tr>
+<tr><td>VABench</td><td>T2AV &amp; I2AV</td><td>778</td><td>15</td><td>50 / 3.01 / 2.31</td><td><span class='pill' style='background:#fef9c3'><b>Sound</b></span> <span class='pill' style='background:#dcfce7'><b>Music</b></span> <span class='pill' style='background:#fee2e2'><b>Speech</b></span></td><td><span class='pill' style='background:#dbeafe'><b>VQ</b></span> <span class='pill' style='background:#dcfce7'><b>AQ</b></span> <span class='pill' style='background:#ede9fe'><b>CMA</b></span></td></tr>
+<tr class='group'><td><b>T2AV-Compass (Ours)</b></td><td><b>T2AV</b></td><td><b>500</b></td><td><b>13</b></td><td><b>154 / 4.03 / 3.61</b></td><td><span class='pill' style='background:#fef9c3'><b>Sound</b></span> <span class='pill' style='background:#dcfce7'><b>Music</b></span> <span class='pill' style='background:#fee2e2'><b>Speech</b></span></td><td><span class='pill' style='background:#dbeafe'><b>VQ</b></span> <span class='pill' style='background:#dcfce7'><b>AQ</b></span> <span class='pill' style='background:#ede9fe'><b>CMA</b></span> <span class='pill' style='background:#ffedd5'><b>IF</b></span> <span class='pill' style='background:#fef9c3'><b>RE</b></span></td></tr>
+</tbody></table></div>
+      <p class="small">Avg Tokens are calculated using the Qwen3 tokenizer. Sub. refers to the average of distinct themes or subjects. Events indicates the number of events within each subject. Sound types: Sound (general sound), Music (musical content), Speech (speech-related content). Eval dimensions: VQ (Video Quality), AQ (Audio Quality), CMA (Cross-Modal Alignment/Synchrony), IF (Instruction Following), RE (Realism Fidelity).</p>
+    </section>
+
+    <section class="section" id="compass">
+      <h2>T2AV-Compass</h2>
+
+      <p>
+        We present T2AV-Compass, a unified benchmark designed to evaluate diverse T2AV systems.
+        Section 3.1 details the data construction pipeline. Section 3.2 provides comprehensive statistics of the resulting benchmark,
+        highlighting its diversity and complexity. Section 3.3 introduces our Dual-Level Evaluation Framework, assessing both objective signal fidelity
+        and cross-modal semantics.
+      </p>
+
+      <h3>Data Construction</h3>
+      <p>
+        To ensure diversity and complexity of the dataset, we employ a three-stage construction pipeline combining taxonomy-based curation and real-world video inversion at scale.
+      </p>
+      <figure class="card figure">
+        <img src="./static/images/datapipe.jpg" alt="Data construction pipeline" />
+        <figcaption>
+          <b>Data construction and checklist-based evaluation generation.</b>
+          The prompt suite is constructed from (1) curated community prompts with semantic deduplication (cos ≥ 0.8),
+          clustering-based sampling, LLM rewriting, and human refinement, and (2) a video-inversion stream using filtered 4–10s YouTube clips
+          with dense captioning and manual verification. The finalized prompts are then converted into two types of checklists:
+          instruction-alignment checks via slot extraction and dimension mapping, and perceptual-realism checks for video/audio quality.
+        </figcaption>
+      </figure>
+
+      <h4>Data Collection</h4>
+      <p>
+        To establish a foundation of broad semantic coverage, we aggregate raw prompts from a variety of high-quality sources,
+        including VidProM, the Kling AI community, LMArena, and Shot2Story.
+        To mitigate the imbalance between common concepts and long-tail distributions, we implement a semantic clustering strategy.
+        Specifically, we encode all prompts using all-mpnet-base-v2 and perform deduplication with a cosine similarity threshold of 0.8.
+        We then apply square-root sampling (where sampling probability is inversely proportional to the square root of cluster size) to preserve semantic distinctiveness while preventing the dominance of frequent topics.
+      </p>
+
+      <h4>Prompt Refinement and Alignment</h4>
+      <p>
+        Raw prompts often lack the descriptive density for state-of-the-art models (e.g., Veo 3.1, Sora 2, Kling 2.6).
+        To address this, we employ Gemini-2.5-Pro to restructure and enrich the sampled prompts.
+        We enhance descriptions of visual subjects, motion dynamics, and acoustic events, while enforcing strict cinematographic constraints (e.g., camera angles, lighting).
+        Following automated generation, we conduct a rigorous manual audit to filter out static scenes or illogical compositions, resulting in a curated subset of 400 complex prompts.
+      </p>
+
+      <h4>Real-world Video Inversion</h4>
+      <p>
+        To counterbalance potential hallucinations in text-only generation and ensure physical plausibility,
+        we introduce a Video-to-Text inversion stream.
+        We select 100 diverse, high-fidelity video clips (4–10s) from YouTube and utilize Gemini-2.5-Pro to generate dense, temporally aligned captions.
+        Discrepancies between the generated prompts and the source ground truth are resolved via human-in-the-loop verification, yielding 100 high-quality prompts anchored in real-world dynamics.
+      </p>
+
+      <h3>Dataset Statistics</h3>
+      <figure class="card figure">
+        <img src="./static/images/data_stats.svg" alt="Dataset statistics" />
+        <figcaption>
+          <b>Dataset statistics of T2AV-Compass.</b>
+          (a) Category distributions over five annotation dimensions (Content Genre, Primary Subject, Event Scenario, Sound Category, and Camera Motion).
+          (b) Distributions of audiovisual complexity factors, including Visual Subject Count, Event Temporal Structure, Audio Spatial Composition, and Audio Temporal Composition.
+        </figcaption>
+      </figure>
+
+      <h4>Distribution and Diversity</h4>
+      <p>
+        Our prompts exhibit notably higher token counts compared to existing baselines (e.g., JavisBench, VABench),
+        more accurately mirroring the complexity of real-world user queries.
+        The dataset encompasses a broad spectrum of themes, soundscapes, and cinematographic styles.
+        To quantify diversity, we analyze the semantic retention rates of CLIP (video) and CLAP (audio) embeddings after deduplication.
+        Our benchmark demonstrates superior semantic distinctiveness across both modalities, significantly outperforming concurrent datasets.
+      </p>
+
+      <h4>Difficulty Analysis</h4>
+      <p>
+        We assess benchmark difficulty across four axes:
+        (1) <b>Visual Subject Multiplicity:</b> 35.8% of samples feature crowds (≥ 4 subjects);
+        (2) <b>Audio Spatial Composition:</b> 55.6% involve mixed on-screen/off-screen sources;
+        (3) <b>Event Temporal Structure:</b> 28.2% contain long narrative chains (≥ 4 event units);
+        (4) <b>Audio Temporal Composition:</b> 72.8% include simultaneous or overlapping audio events.
+        These statistics confirm that our benchmark poses significant challenges regarding fine-grained control and temporal consistency.
+      </p>
+
+      <h3>Dual-Level Evaluation Framework</h3>
+      <p>
+        We introduce a dual-level evaluation framework for T2AV generation that is both systematic and reproducible.
+        At the objective level, we factor system performance into three complementary pillars: (i) video quality, (ii) audio quality, and (iii) cross-modal alignment.
+        At the subjective level, we propose a reasoning-first <em>MLLM-as-a-Judge</em> protocol that evaluates high-level semantics through two dimensions:
+        <em>Instruction Following (IF)</em> via granular QA checklists, and <em>Perceptual Realism (PR)</em> via diagnostic violation checks.
+        This mechanism ensures both robustness and interpretability by mandating explicit rationales before scoring.
+      </p>
+
+      <h4>Objective Evaluation</h4>
+      <p>We use a set of expert metrics to cover the three pillars above.</p>
+
+      <p><b>Video Quality</b></p>
+      <ul>
+        <li><b>Video Technological Score (VT):</b> Quantifies low-level visual integrity using DOVER++, penalizing artifacts such as noise, blur, and compression distortions.</li>
+        <li><b>Video Aesthetic Score (VA):</b> Captures high-level perceptual attributes using LAION-Aesthetic Predictor V2.5, including composition, lighting, and color harmony.</li>
+      </ul>
+
+      <p><b>Audio Quality</b></p>
+      <ul>
+        <li><b>Perceptual Quality (PQ):</b> Measures signal fidelity and acoustic realism, sensitive to background noise, bandwidth limitations, and unnatural timbre.</li>
+        <li><b>Content Usefulness (CU):</b> Quantifies the semantic validity and information density of the generated audio.</li>
+      </ul>
+
+      <p><b>Cross-modal Alignment</b></p>
+      <ul>
+        <li><b>Text–Audio (T–A) Alignment:</b> CLAP cosine similarity between text and audio embeddings.</li>
+        <li><b>Text–Video (T–V) Alignment:</b> VideoCLIP-XL-V2 cosine similarity between text and video embeddings.</li>
+        <li><b>Audio–Video (A–V) Alignment:</b> ImageBind semantic similarity independent of the text prompt.</li>
+        <li><b>Temporal Synchronization:</b> DeSync (DS) measures synchronization error; LatentSync (LS) for lip-sync in talking-face scenarios.</li>
+      </ul>
+
+      <h4>Subjective Evaluation</h4>
+      <figure class="card figure">
+        <img src="./static/images/avbench_00.jpg" alt="Subjective evaluation illustration" />
+        <figcaption>
+          <b>Illustration of the subjective evaluation framework in T2AV-Compass.</b>
+          Unlike traditional metrics, our protocol provides interpretable diagnosis through two distinct tracks:
+          <em>(Top) Instruction following</em> is evaluated via rigorous Q&amp;A checklist pairs, ensuring semantic alignment in complex scenarios like social interactions and sound effects.
+          <em>(Bottom) Realism</em> scrutinizes perceptual quality, rewarding fine-grained details while explicitly penalizing visual hallucinations or audio dissonance.
+        </figcaption>
+      </figure>
+
+      <p>
+        To address the limitations of traditional metrics in capturing fine-grained semantic details and complex cross-modal dynamics, we establish a robust "MLLM-as-a-Judge" framework.
+        This framework comprises two distinct evaluation tracks: <em>Instruction Following Verification (IFV)</em> and <em>Realism</em>.
+        We enforce a <b>reasoning-first protocol</b>, mandating that the judge explicitly articulates the rationale behind its decision prior to assigning a score on a 5-point scale.
+      </p>
+
+      <p><b>Instruction Following (IF)</b> assesses the model's fidelity to textual prompts. The taxonomy encompasses <b>7 primary dimensions</b> decomposed into <b>17 sub-dimensions</b>:</p>
+      <ul>
+        <li><b>Attribute:</b> Examines visual accuracy, focusing on Look and Quantity.</li>
+        <li><b>Dynamics:</b> Assesses dynamic behaviors, including Motion, Interaction, Transformation, and Cam. Motion.</li>
+        <li><b>Cinematography:</b> Scrutinizes directorial control, including Light, Frame, and Color Grading.</li>
+        <li><b>Aesthetics:</b> Measures artistic integrity, decomposed into Style and Mood.</li>
+        <li><b>Relations:</b> Verifies structural logic, evaluating Spatial and Logical connections.</li>
+        <li><b>World Knowledge:</b> Tests grounding in reality, specifically Factual Knowledge of real-world scenarios.</li>
+        <li><b>Sound:</b> Assesses the generation of auditory elements, covering Sound Effects, Speech, and Music.</li>
+      </ul>
+
+      <p><b>Realism</b> scrutinizes the physical and perceptual authenticity of the generated content:</p>
+      <ul>
+        <li><b>Video Realism:</b> Motion Smoothness Score (MSS), Object Integrity Score (OIS), and Temporal Coherence Score (TCS).</li>
+        <li><b>Audio Realism:</b> Acoustic Artifacts Score (AAS) and Material-Timbre Consistency (MTC).</li>
+      </ul>
+    </section>
+
+    <section class="section" id="experiments">
+      <h2>Experiments</h2>
+      <h3>Main Results</h3>
+      <p>
+        We evaluate 11 representative T2AV systems, comprising of 7 closed-source end-to-end models, 2 open-source end-to-end models,
+        and 2 composed generation pipelines: Veo-3.1, Sora-2, Kling-2.6, Wan-2.6 and Wan-2.5, Seedance-1.5, PixVerse-V5.5,
+        the open-source Ovi-1.1 and JavisDiT, and two modular pipelines Wan-2.2 + HunyuanVideo-Foley and AudioLDM2 + MTV.
+      </p>
+      <p>Our analysis of the results yields the following key observations:</p>
+      <ul>
+        <li><b>The Gap Between Open and Closed-Source:</b> Closed-source models show superior performance over open-source ones in both objective metrics and semantic evaluations.</li>
+        <li><b>The Audio Realism Bottleneck:</b> While proprietary models demonstrate robust capabilities in Instruction Following (IF), they exhibit significant deficiencies in Realism, particularly in the auditory domain.</li>
+        <li><b>T2AV-Compass is challenging:</b> No single model dominates all evaluation dimensions. For instance, while Veo-3.1 attains the highest overall average, it shows major deficiencies in Audio Realism.</li>
+        <li><b>Competitiveness of Composed Pipelines:</b> Composed systems remain highly effective for specific metrics. Notably, the Wan-2.2 + HunyuanFoley pipeline achieves the highest score in Video Realism, surpassing all end-to-end models.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="analysis">
+      <h2>Further Analysis</h2>
+
+      <figure class="card figure">
+        <img src="./static/images/video_if_6groups_gradient.svg" alt="Macro-level comparison across six evaluation dimensions" />
+        <figcaption>
+          <b>Macro-level comparison across six evaluation dimensions.</b>
+          We report the averaged Video Instruction-Following score (Video IF, Avg.) of five representative models (Veo-3.1, Wan-2.5, Ovi-1.1, PixVerse-V5.5, and Sora-2) on Aesthetics, Attribute, Cinematography, Dynamics, Relations, and World.
+          Overall, Veo-3.1 and Wan-2.5 form the top tier with consistently strong performance; Sora-2 is competitive on Attribute and Cinema but lags on Dynamics; PixVerse exhibits mid-range performance across most dimensions; and Ovi-1.1 shows the lowest scores, with the largest gaps on Dynamics and World.
+        </figcaption>
+      </figure>
+
+      <p>
+        As illustrated in the figure above, the macro-level evaluation reveals a clear stratification of model capabilities across the six visual dimensions.
+        <b>Veo-3.1</b> and <b>Wan-2.5</b> consistently constitute the top tier, demonstrating robust and balanced performance across Aesthetics, Attribute, and Cinematography (Cinema).
+        Notably, <b>Sora-2</b> remains highly competitive in static-centric dimensions such as Attribute and World, even surpassing the other leaders in the latter, which suggests a strong prior in factual and naturalistic grounding.
+      </p>
+      <p>
+        However, <b>Dynamics</b> emerges as the most challenging and discriminative dimension for all systems.
+        <b>Wan-2.5</b> attains the peak score in Dynamics, with <b>Veo-3.1</b> following closely, underscoring their relative strength in executing motion-centric instructions.
+        In contrast, <b>Sora-2</b> exhibits a noticeable decline in this category, indicating a potential bottleneck in maintaining complex temporal coherence and interactions.
+      </p>
+      <p>
+        Among the remaining systems, <b>PixVerse</b> maintains a stable mid-tier position, while <b>Ovi-1.1</b> consistently trails across all metrics.
+        The most pronounced deficits for <b>Ovi-1.1</b> are observed in Dynamics and World, reflecting significant difficulties in handling temporally demanding tasks and knowledge-intensive prompts.
+        Collectively, these findings suggest that while high-end models are approaching saturation in visual appearance and cinematic styling, the frontier for robust instruction-following lies in mastering temporal causality and sophisticated world-knowledge integration.
+      </p>
+
+      <h3>Multi-metric Radar Comparison</h3>
+      <figure class="card figure">
+        <img src="./static/images/radar_six_panels_integrated.svg" alt="Multi-metric radar comparison of representative T2AV systems" />
+        <figcaption>
+          <b>Multi-metric radar comparison of representative T2AV systems.</b>
+          We report five complementary criteria for overall generation quality: AAS, MSS, MTC, OIS, and TCS (higher is better).
+          The leftmost panel summarizes the average performance across models, while the remaining panels present per-model radar profiles for OVI-1.1, PixVerse-V5.5, Sora-2, Wan-2.5, and Veo-3.1, respectively.
+          Overall, Veo-3.1 and Sora-2 achieve the strongest balanced performance, whereas OVI-1.1 shows the lowest scores with particularly weak MTC.
+        </figcaption>
+      </figure>
+
+      <p>
+        As shown in the radar plots above, the evaluated systems exhibit a consistent trend: <b>OIS</b> and <b>TCS</b> achieve relatively higher scores for strong models, while <b>MTC</b> remains the most challenging dimension and contributes the largest cross-model variance.
+      </p>
+      <p>
+        Inspecting individual profiles, <b>Veo-3.1</b> demonstrates the most balanced high-level performance, leading on MSS and maintaining strong OIS/TCS, indicating robust content presentation and temporal consistency.
+        <b>Sora-2</b> is highly competitive and attains the strongest OIS and TCS, but shows a lower value on AAS, suggesting that its strengths lie more in overall realism/coherence than in fine-grained attribute adherence.
+        <b>Wan-2.5</b> forms the second tier with solid OIS/TCS yet noticeably weaker MSS/MTC, implying a relative gap in multi-aspect stability and cross-topic robustness.
+        <b>PixVerse-V5.5</b> delivers mid-range performance with comparatively better MSS/OIS but limited TCS, reflecting less consistent temporal coherence.
+        Finally, <b>OVI-1.1</b> underperforms across most criteria—especially MTC—highlighting persistent difficulty in maintaining reliable multi-topic consistency and overall temporal quality.
+      </p>
+      <p>
+        Overall, these results suggest that improving MTC-related capability is crucial for narrowing the gap, while current top models primarily differentiate through stronger temporal coherence (TCS) and overall integrity (OIS).
+      </p>
+    </section>
+
+    <section class="section" id="casestudy">
+      <h2>Case Study</h2>
+      <p class="muted">Representative video samples generated by different T2AV models. Click to play with audio.</p>
+
+      <!-- Case 1 -->
+      <div class="case-block">
+        <h3>Case #1</h3>
+        <div class="prompt-box">
+          <b>Prompt:</b>
+          <p class="prompt-text">"In a stylized 3D Pixar-like CGI animation, a sunny school basketball court is bathed in the warm glow of afternoon sunlight, with soft volumetric rays and a gentle bloom on the highlights. The court, featuring slightly worn painted lines and metal hoops with chain nets, is alive with the joyful energy of 10 to 12-year-old kids dribbling, passing, and shooting basketballs. In the mid-ground near the baseline stands Wimbly, a cheerful 10-year-old white boy with a round, friendly face, medium-length messy brown hair, and big warm brown eyes, dressed in a yellow T-shirt, navy shorts, and white sneakers. The camera performs a slow, cinematic pan with a natural handheld feel across the court, eventually drifting to settle into a medium close-up on Wimbly. He grips a basketball, his bright eyes intently watching the game. Just as a shot swishes cleanly through a chain net, a warm rim light catches the side of his face and outlines his hair, and his face lights up with a smile. The air is filled with the sounds of squeaking sneakers, rhythmic ball thumps, the satisfying rattle of the chain net, and the cheerful laughter of children. A calm, narrative voiceover says, "There was once a cheerful little boy named Wimbly.""</p>
+        </div>
+        <div class="video-grid">
+          <div class="video-item">
+            <video controls preload="metadata">
+              <source src="./videos/1-veo.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">Veo-3.1</div>
+          </div>
+          <div class="video-item">
+            <video controls preload="metadata">
+              <source src="./videos/1-kling.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">Kling-2.6</div>
+          </div>
+          <div class="video-item">
+            <video controls preload="metadata">
+              <source src="./videos/1-ovi.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">Ovi-1.1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 268 -->
+      <div class="case-block">
+        <h3>Case #268</h3>
+        <div class="prompt-box">
+          <b>Prompt:</b>
+          <p class="prompt-text">"In a medium wide shot, a strikingly beautiful woman in a vibrant, figure-hugging red sheath dress walks with a graceful, unhurried gait through a lush, sun-dappled urban park during the golden hour. A smooth tracking shot follows her from the side, keeping her centered in the frame with a shallow depth of field. As she passes various groups of men, their activities come to an abrupt halt; conversations trail off and all heads turn in unison, their expressions a mixture of awe and disbelief. The ambient sounds of the park—distant city hum and birds chirping—suddenly diminish, leaving only the confident, rhythmic click of her heels on the path."</p>
+        </div>
+        <div class="video-grid">
+          <div class="video-item">
+            <video controls preload="metadata">
+              <source src="./videos/268-veo.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">Veo-3.1</div>
+          </div>
+          <div class="video-item">
+            <video controls preload="metadata">
+              <source src="./videos/268-kling.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">Kling-2.6</div>
+          </div>
+          <div class="video-item">
+            <video controls preload="metadata">
+              <source src="./videos/268-ovi.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">Ovi-1.1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 377 -->
+      <div class="case-block">
+        <h3>Case #377</h3>
+        <div class="prompt-box">
+          <b>Prompt:</b>
+          <p class="prompt-text">"On a brightly lit ceremonial stage, a noble German Shepherd service dog stands proudly, its tactical vest densely covered with gleaming medals. A female officer in full dress uniform gently pets its head, her expression a mix of affection and respect, while a male officer stands beside them, smiling with admiration. The camera begins with an extreme close-up, slowly panning across the collection of medals, then smoothly pulls back into a medium shot that captures the entire heartwarming tableau. The scene is filmed with a shallow depth of field and warm, respectful lighting, creating a respectful and heartwarming cinematic style. A gentle, inspiring orchestral score plays, accompanied by the faint, respectful murmur of an audience and the soft rustle of uniforms."</p>
+        </div>
+        <div class="video-grid">
+          <div class="video-item">
+            <video controls preload="metadata">
+              <source src="./videos/377-veo.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">Veo-3.1</div>
+          </div>
+          <div class="video-item">
+            <video controls preload="metadata">
+              <source src="./videos/377-kling.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">Kling-2.6</div>
+          </div>
+          <div class="video-item">
+            <video controls preload="metadata">
+              <source src="./videos/377-ovi.mp4" type="video/mp4">
+            </video>
+            <div class="video-label">Ovi-1.1</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section" id="conclusion">
+      <h2>Conclusion</h2>
+      <p>
+        We introduced T2AV-Compass, a unified benchmark for systematically evaluating text-to-audio-video generation.
+        By combining a taxonomy-driven prompt construction pipeline with a dual-level evaluation framework, T2AV-Compass enables fine-grained and diagnostic assessment
+        of video quality, audio quality, cross-modal alignment, instruction following, and realism.
+      </p>
+      <p>
+        Extensive experiments across a broad set of representative T2AV systems demonstrate that our benchmark effectively differentiates model capabilities
+        and exposes diverse failure modes that are not captured by existing evaluations.
+      </p>
+      <p>
+        We hope T2AV-Compass serves as a practical and evolving foundation for advancing both the evaluation and modeling of text-to-audio-video generation.
+      </p>
+    </section>
+
+    <section class="section" id="citation">
+      <h2>Citation</h2>
+      <div class="card codebox">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+          <div class="small">BibTeX</div>
+          <button class="copybtn" id="copybtn" onclick="copyBibtex()">Copy</button>
+        </div>
+        <hr class="sep" />
+        <pre><code id="bibtex">@misc{cao2025t2avcompass,
+  title        = {T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation},
+  author       = {Cao, Zhe and Wang, Tao and Wang, Jiaming and Wang, Yanghai and Zhang, Yuanxing and Chen, Jialu and Deng, Miao and Wang, Jiahao and Guo, Yubin and Liao, Chenxi and Zhang, Yize and Zhang, Zhaoxiang and Liu, Jiaheng},
+  year         = {2025},
+  note         = {Preprint},
+}</code></pre>
+      </div>
+      <div class="small" style="margin-top:12px;">
+        <b>Links:</b>
+        Project page: <a href="https://github.com/NJU-LINK/T2AV-Compass">github.com/NJU-LINK/T2AV-Compass</a> ·
+        Dataset: <a href="https://huggingface.co/datasets/NJU-LINK/T2AV-Compass">huggingface.co/datasets/NJU-LINK/T2AV-Compass</a>
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2025 T2AV-Compass.</div>
+    </footer>
+  </main>
+
+  <script src="./static/js/main.js"></script>
+</body>
+</html>
