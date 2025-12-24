@@ -118,7 +118,7 @@ If you find this work useful, please cite:
 
 ## 🔗 Links
 
-- **Project Page**: [github.com/NJU-LINK/T2AV-Compass](https://github.com/NJU-LINK/T2AV-Compass)
+- **Project Page**: [nju-link.github.io/T2AV-Compass/](https://nju-link.github.io/T2AV-Compass/)
 - **Dataset**: [huggingface.co/datasets/NJU-LINK/T2AV-Compass](https://huggingface.co/datasets/NJU-LINK/T2AV-Compass)
 
 ## 📧 Contact
