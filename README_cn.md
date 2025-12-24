@@ -1,6 +1,6 @@
 # T2AV-Compass: 面向文本到音视频生成的统一评测基准
 
-[![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://github.com/NJU-LINK/T2AV-Compass)
+[![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://nju-link.github.io/T2AV-Compass/)
 [![Dataset](https://img.shields.io/badge/🤗-Dataset-yellow)](https://huggingface.co/datasets/NJU-LINK/T2AV-Compass)
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-red)](https://arxiv.org/)
 
