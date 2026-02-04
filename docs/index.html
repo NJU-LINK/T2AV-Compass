@@ -159,29 +159,33 @@
 
     <section class="section" id="leaderboard">
       <h2>Leaderboard</h2>
-      <p class="muted">Tables mirror the main results in the paper. Best values are highlighted.</p>
+      <p class="muted">Tables mirror the main results in the paper. Best values are highlighted. A dash (–) indicates that the model is unable to generate human speech. Due to closed-source security review, some videos were not generated successfully. See the paper appendix for per-sub-dimension scores.</p>
 
       <h3>Objective metrics</h3>
       <div class='tablewrap'><table>
-<thead><tr><th>Method</th><th>Open-Source</th><th>VT↑</th><th>VA↑</th><th>PQ↑</th><th>CU↑</th><th>A-V↑</th><th>T-A↑</th><th>T-V↑</th><th>DS↓</th><th>LS↑</th></tr></thead><tbody>
+<thead><tr><th>Method</th><th>Open-Source</th><th>VT↑</th><th>VA↑</th><th>AA↑</th><th>SQ↑</th><th>A-V↑</th><th>T-A↑</th><th>T-V↑</th><th>DS↓</th><th>LS↑</th></tr></thead><tbody>
 <tr class='group'><td colspan='11'>— T2AV</td></tr>
-<tr><td>Veo-3.1</td><td>✗</td><td><mark class='best'>13.39</mark></td><td>5.425</td><td>7.015</td><td>6.621</td><td>0.2856</td><td>0.2335</td><td>0.2438</td><td>0.6776</td><td>1.509</td></tr>
-<tr><td>Sora-2</td><td>✗</td><td>7.568</td><td>4.112</td><td>5.827</td><td>5.340</td><td>0.2419</td><td>0.2484</td><td>0.2432</td><td>0.8100</td><td>1.331</td></tr>
-<tr><td>Kling-2.6</td><td>✗</td><td>11.41</td><td>5.417</td><td>6.882</td><td>6.449</td><td>0.2495</td><td>0.2495</td><td>0.2449</td><td>0.7852</td><td>1.502</td></tr>
-<tr><td>Wan-2.6</td><td>✗</td><td>11.87</td><td>4.605</td><td>6.658</td><td>6.222</td><td>0.2149</td><td>0.2572</td><td>0.2451</td><td>0.8818</td><td>1.081</td></tr>
-<tr><td>Seedance-1.5</td><td>✗</td><td>12.74</td><td>5.007</td><td><mark class='best'>7.555</mark></td><td><mark class='best'>7.250</mark></td><td><mark class='best'>0.2875</mark></td><td>0.2320</td><td>0.2370</td><td>0.8650</td><td><mark class='best'>1.560</mark></td></tr>
-<tr><td>Wan-2.5</td><td>✗</td><td>13.29</td><td>4.642</td><td>6.469</td><td>5.869</td><td>0.2026</td><td>0.2445</td><td><mark class='best'>0.2470</mark></td><td>0.8810</td><td>1.065</td></tr>
-<tr><td>Pixverse-V5.5</td><td>✗</td><td>11.54</td><td>4.558</td><td>6.108</td><td>5.855</td><td>0.1816</td><td>0.2305</td><td>0.2431</td><td><mark class='best'>0.6627</mark></td><td>1.306</td></tr>
-<tr><td>Ovi-1.1</td><td>✓</td><td>9.336</td><td>4.368</td><td>6.569</td><td>6.492</td><td>0.1620</td><td>0.1756</td><td>0.2391</td><td>0.9624</td><td>1.191</td></tr>
-<tr><td>JavisDiT</td><td>✓</td><td>6.850</td><td>3.575</td><td>4.299</td><td>5.204</td><td>0.1284</td><td>0.1257</td><td>0.2320</td><td>1.322</td><td>--</td></tr>
+<tr><td>Veo-3.1</td><td>✗</td><td><mark class='best'>13.39</mark></td><td>5.425</td><td>6.818</td><td>1.597</td><td>0.2856</td><td>0.2335</td><td>0.2438</td><td>0.6776</td><td>1.509</td></tr>
+<tr><td>Sora-2</td><td>✗</td><td>7.568</td><td>4.112</td><td>5.584</td><td>1.485</td><td>0.2419</td><td>0.2484</td><td>0.2432</td><td>0.8100</td><td>1.331</td></tr>
+<tr><td>Kling-2.6</td><td>✗</td><td>11.41</td><td>5.417</td><td>6.666</td><td>1.783</td><td>0.2495</td><td>0.2495</td><td>0.2449</td><td>0.7852</td><td>1.502</td></tr>
+<tr><td>Wan-2.6</td><td>✗</td><td>11.87</td><td>4.605</td><td>6.440</td><td>1.476</td><td>0.2149</td><td>0.2572</td><td>0.2451</td><td>0.8818</td><td>1.081</td></tr>
+<tr><td>Seedance-1.5</td><td>✗</td><td>12.74</td><td>5.007</td><td><mark class='best'>7.403</mark></td><td>1.766</td><td><mark class='best'>0.2875</mark></td><td>0.2320</td><td>0.2370</td><td>0.8650</td><td><mark class='best'>1.560</mark></td></tr>
+<tr><td>LTX-2</td><td>✓</td><td>7.160</td><td>4.661</td><td>6.742</td><td>1.597</td><td>0.1851</td><td>0.2365</td><td>0.2411</td><td>0.8756</td><td>1.339</td></tr>
+<tr><td>Wan-2.5</td><td>✗</td><td>13.29</td><td>4.642</td><td>6.169</td><td>1.543</td><td>0.2026</td><td>0.2445</td><td><mark class='best'>0.2470</mark></td><td>0.8810</td><td>1.065</td></tr>
+<tr><td>Pixverse-V5.5</td><td>✗</td><td>11.54</td><td>4.558</td><td>5.982</td><td><mark class='best'>1.824</mark></td><td>0.1816</td><td>0.2305</td><td>0.2431</td><td><mark class='best'>0.6627</mark></td><td>1.306</td></tr>
+<tr><td>Ovi-1.1</td><td>✓</td><td>9.336</td><td>4.368</td><td>6.531</td><td>1.592</td><td>0.1620</td><td>0.1756</td><td>0.2391</td><td>0.9624</td><td>1.191</td></tr>
+<tr><td>JavisDiT</td><td>✓</td><td>6.850</td><td>3.575</td><td>4.752</td><td>--</td><td>0.1284</td><td>0.1257</td><td>0.2320</td><td>1.322</td><td>--</td></tr>
 <tr class='group'><td colspan='11'>— T2V + TV2A</td></tr>
-<tr><td>Wan-2.2 + Hunyuan-Foley</td><td>✓</td><td>13.43</td><td><mark class='best'>5.605</mark></td><td>6.497</td><td>6.208</td><td>0.2575</td><td>0.2076</td><td>0.2455</td><td>0.7935</td><td>0.6978</td></tr>
+<tr><td>HunyuanVideo1.5 + Hunyuan-Foley</td><td>✓</td><td>11.34</td><td>4.804</td><td>6.330</td><td>--</td><td>0.2598</td><td>0.2021</td><td>0.2436</td><td>0.8924</td><td>--</td></tr>
+<tr><td>Wan-2.2 + Hunyuan-Foley</td><td>✓</td><td><mark class='best'>13.43</mark></td><td><mark class='best'>5.605</mark></td><td>6.353</td><td>--</td><td>0.2575</td><td>0.2076</td><td>0.2455</td><td>0.7935</td><td>--</td></tr>
+<tr><td>Wan-2.2 + MMAudio</td><td>✓</td><td><mark class='best'>13.43</mark></td><td><mark class='best'>5.605</mark></td><td>6.076</td><td>--</td><td>0.2195</td><td>0.2448</td><td>0.2455</td><td>0.8890</td><td>--</td></tr>
+<tr><td>HunyuanVideo1.5 + MMAudio</td><td>✓</td><td>11.34</td><td>4.804</td><td>6.101</td><td>--</td><td>0.2210</td><td>0.2466</td><td>0.2436</td><td>0.9427</td><td>--</td></tr>
 <tr class='group'><td colspan='11'>— T2A + TA2V</td></tr>
-<tr><td>AudioLDM2 + MTV</td><td>✓</td><td>8.066</td><td>3.458</td><td>6.406</td><td>6.100</td><td>0.1639</td><td><mark class='best'>0.2698</mark></td><td>0.2394</td><td>1.1592</td><td>0.6835</td></tr>
+<tr><td>AudioLDM2 + MTV</td><td>✓</td><td>8.066</td><td>3.458</td><td>6.253</td><td>1.264</td><td>0.1639</td><td><mark class='best'>0.2698</mark></td><td>0.2394</td><td>1.1592</td><td>0.6835</td></tr>
 </tbody></table></div>
-      <p class="small">VT: Video Technological · VA: Video Aesthetic · PQ: Perceptual Quality · CU: Content Usefulness · A–V/T–A/T–V: alignment · DS: DeSync (lower is better) · LS: LatentSync.</p>
+      <p class="small">VT: Video Technological · VA: Video Aesthetic · AA: Audio Attribute · SQ: Speech Quality · A–V/T–A/T–V: alignment · DS: DeSync (lower is better) · LS: LatentSync.</p>
 
-      <h3>Subjective evaluation</h3>
+      <h3>Subjective evaluation (MLLM-as-a-Judge)</h3>
       <div class='tablewrap'><table>
 <thead><tr><th>Method</th><th>Open-Source</th><th>IF Video↑</th><th>IF Audio↑</th><th>Video Realism↑</th><th>Audio Realism↑</th><th>Average↑</th></tr></thead><tbody>
 <tr class='group'><td colspan='7'>— T2AV</td></tr>
@@ -190,16 +194,20 @@
 <tr><td>Kling-2.6</td><td>✗</td><td>73.72</td><td>63.89</td><td>87.98</td><td>47.03</td><td>68.16</td></tr>
 <tr><td>Wan-2.6</td><td>✗</td><td><mark class='best'>78.52</mark></td><td><mark class='best'>74.95</mark></td><td>82.05</td><td>35.18</td><td>67.68</td></tr>
 <tr><td>Seedance-1.5</td><td>✗</td><td>60.96</td><td>61.22</td><td>88.94</td><td><mark class='best'>53.84</mark></td><td>66.24</td></tr>
+<tr><td>LTX-2</td><td>✓</td><td>63.97</td><td>64.74</td><td><mark class='best'>89.95</mark></td><td>36.23</td><td>63.72</td></tr>
 <tr><td>Wan-2.5</td><td>✗</td><td>76.56</td><td>57.95</td><td>76.00</td><td>35.06</td><td>61.39</td></tr>
 <tr><td>Pixverse-V5.5</td><td>✗</td><td>65.13</td><td>53.31</td><td>69.37</td><td>33.58</td><td>55.35</td></tr>
 <tr><td>Ovi-1.1</td><td>✓</td><td>55.05</td><td>52.83</td><td>65.93</td><td>30.75</td><td>51.14</td></tr>
 <tr><td>JavisDiT</td><td>✓</td><td>32.56</td><td>15.26</td><td>34.97</td><td>14.85</td><td>24.41</td></tr>
 <tr class='group'><td colspan='7'>— T2V + TV2A</td></tr>
-<tr><td>Wan-2.2 + Hunyuan-Foley</td><td>✓</td><td>64.54</td><td>38.19</td><td><mark class='best'>89.63</mark></td><td>41.25</td><td>58.40</td></tr>
+<tr><td>HunyuanVideo1.5 + Hunyuan-Foley</td><td>✓</td><td>66.23</td><td>40.09</td><td>86.75</td><td>41.65</td><td>58.68</td></tr>
+<tr><td>Wan-2.2 + Hunyuan-Foley</td><td>✓</td><td>64.54</td><td>37.10</td><td>89.63</td><td>41.25</td><td>58.13</td></tr>
+<tr><td>Wan-2.2 + MMAudio</td><td>✓</td><td>64.79</td><td>38.19</td><td>89.63</td><td>36.05</td><td>57.17</td></tr>
+<tr><td>HunyuanVideo1.5 + MMAudio</td><td>✓</td><td>66.10</td><td>35.94</td><td>85.38</td><td>35.15</td><td>55.64</td></tr>
 <tr class='group'><td colspan='7'>— T2A + TA2V</td></tr>
 <tr><td>AudioLDM2 + MTV</td><td>✓</td><td>47.13</td><td>54.39</td><td>56.73</td><td>31.90</td><td>47.54</td></tr>
 </tbody></table></div>
-      <p class="small">IF: instruction following. Realism measures perceptual plausibility and fine-grained details.</p>
+      <p class="small">Subjective evaluation over four dimensions. IF: instruction following. Realism measures perceptual plausibility and fine-grained details.</p>
     </section>
 
     <section class="section" id="related">

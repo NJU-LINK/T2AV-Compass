@@ -19,7 +19,7 @@
 - **Taxonomy-Driven 高复杂度基准**：500 条语义密集的提示词，通过分类驱动的策划和视频反演的混合管道合成。针对现有评估中经常被忽视的细粒度视听约束，如画外音和物理因果关系。
 
 - **统一双层评估框架**：
-  - **客观评估**：视频质量（VT, VA）、音频质量（PQ, CU）、跨模态对齐（T-A, T-V, A-V, DeSync, LatentSync）
+  - **客观评估**：视频质量（VT, VA）、音频质量（AA, SQ）、跨模态对齐（T-A, T-V, A-V, DeSync, LatentSync）
   - **主观评估（MLLM-as-a-Judge）**：基于 checklist 的可解释评估，覆盖 **指令跟随** 和 **感知真实性**
 
 - **广泛基准测试**：系统评估了 11 个最先进的 T2AV 系统，包括 Veo-3.1、Sora-2、Kling-2.6、Wan-2.5/2.6、Seedance-1.5、PixVerse-V5.5、Ovi-1.1、JavisDiT 以及组合管道。
@@ -32,8 +32,8 @@
 |------|------|------|
 | **视频质量** | VT (Video Technological) | 通过 DOVER++ 评估底层视觉完整性 |
 | | VA (Video Aesthetic) | 通过 LAION-Aesthetic V2.5 评估高层感知属性 |
-| **音频质量** | PQ (Perceptual Quality) | 信号保真度和声学真实性 |
-| | CU (Content Usefulness) | 语义有效性和信息密度 |
+| **音频质量** | AA (Audio Aesthetic) | PQ 与 CU 的均值（感知质量与内容有用性） |
+| | SQ (Speech Quality) | 基于 NISQA 的语音质量 |
 | **跨模态对齐** | T-A | 通过 CLAP 的文本-音频对齐 |
 | | T-V | 通过 VideoCLIP-XL-V2 的文本-视频对齐 |
 | | A-V | 通过 ImageBind 的音频-视频对齐 |
@@ -86,6 +86,72 @@
   - 视频模型：`video_prompt`
   - 音频模型：`audio_prompt`
   - TTS/语音：`speech_prompt`
+
+---
+
+## 🔧 客观评测：环境配置与使用
+
+客观指标（VT、VA、PQ、CU、T-V、T-A、A-V、DeSync、LatentSync 等）的评测代码位于 **`t2av-compass/`** 目录。详细说明见 [readme.md](readme.md)，此处为简要步骤。
+
+### 环境要求
+
+- **Conda**（Miniconda 或 Anaconda）
+- **ffmpeg**（音频抽取与 Synchformer 预处理）
+- **NVIDIA GPU + CUDA**（推荐）
+
+### 目录结构
+
+```
+T2AV-Compass/
+├── t2av-compass/           # 评测代码根目录（以下命令均在此目录执行）
+│   ├── scripts/            # batch_eval_all.sh、run_audiobox_batch.py
+│   ├── Objective/          # 客观指标实现（DOVER、Aesthetic、AudioBox、ImageBind、Synchformer 等）
+│   ├── Subjective/         # MLLM-as-a-Judge 主观评测
+│   ├── Data/               # 示例 prompts.json
+│   ├── input/              # 放置待评测视频（如 1.mp4、2.mp4）
+│   └── Output/             # 评测结果 JSON 输出
+├── data/                   # 基准数据 prompts_with_checklist.json
+└── readme.md               # 客观评测完整说明（英文）
+```
+
+### 一键批量评测
+
+在 **`t2av-compass`** 目录下执行：
+
+```bash
+cd t2av-compass
+bash scripts/batch_eval_all.sh input Data/prompts.json Output
+```
+
+- `input`：视频所在目录
+- `Data/prompts.json`：包含 `video_prompt`、`audio_prompt` 的提示词文件（可与 `data/prompts_with_checklist.json` 格式兼容或转换）
+- `Output`：结果输出目录
+
+### 按指标配置 Conda 环境
+
+每个客观指标使用**独立 conda 环境**以避免依赖冲突。需创建的环境名称：
+
+- `t2av-aesthetic` — 视频美学（Aesthetic Predictor V2.5）
+- `t2av-dover` — 视频技术质量（DOVER）
+- `t2av-audiobox` — 音频质量（AudioBox Aesthetics）
+- `t2av-imagebind-vt` — 视频–文本相似度（ImageBind）
+- `t2av-imagebind-at` — 音频–文本相似度（ImageBind）
+- `t2av-synchformer` — 音视频同步（Synchformer）
+
+各环境的创建命令、依赖安装及模型权重下载见 **[readme.md](readme.md)** 第 4 节。
+
+### 简要检查清单
+
+```bash
+cd t2av-compass
+# 1) 将待评测视频放入 input/
+# 2) 准备 Data/prompts.json 或 input/prompts.json（含 video_prompt、audio_prompt）
+# 3) 按 readme.md 创建各 conda 环境并下载所需模型权重
+# 4) 运行：
+bash scripts/batch_eval_all.sh input Data/prompts.json Output
+```
+
+---
 
 ## 🚀 快速开始
 

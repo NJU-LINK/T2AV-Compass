@@ -1,0 +1,16 @@
+{
+  "paired_similarity_mean": 0.11945830285549164,
+  "paired_similarity_std": 0.0,
+  "paired_similarity_min": 0.11945830285549164,
+  "paired_similarity_max": 0.11945830285549164,
+  "paired_similarities": [
+    0.11945830285549164
+  ],
+  "mean_rank": 1.0,
+  "median_rank": 1.0,
+  "recall_at_1": 1.0,
+  "recall_at_5": 1.0,
+  "recall_at_10": 1.0,
+  "similarity_matrix_mean": 0.11945830285549164,
+  "similarity_matrix_std": NaN
+}

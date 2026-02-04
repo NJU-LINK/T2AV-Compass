@@ -1,0 +1,11 @@
+torch>=2.0.0
+torchvision  # because torch version already specific, the right torchvision will be derived automatically
+torchaudio  # because torch version already specific, the right torchaudio will be derived automatically
+pytorchvideo @ git+https://github.com/facebookresearch/pytorchvideo.git@6cdc929315aab1b5674b6dcf73b16ec99147735f
+timm
+ftfy
+regex
+einops
+iopath
+numpy>=1.19
+types-regex
