@@ -1,0 +1,251 @@
+sample_id,data_path,Production_Quality,Production_Complexity,Content_Enjoyment,Content_Usefulness
+audiomos2025-track2-audio-unbalanced_train_segments_audio_-7Wu-EpG838_30000_40000,/your_path/unbalanced_train_segments/audio/-7Wu-EpG838_30000_40000.flac,4.1,3.5,3.0,4.3
+audiomos2025-track2-audio-unbalanced_train_segments_audio_-B8fvRca1is_410000_420000,/your_path/unbalanced_train_segments/audio/-B8fvRca1is_410000_420000.flac,5.0,3.2,4.6,5.2
+audiomos2025-track2-audio-unbalanced_train_segments_audio_-WyobeAiz5Y_10000_20000,/your_path/unbalanced_train_segments/audio/-WyobeAiz5Y_10000_20000.flac,6.0,3.0,3.6,6.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_0JNAHVgIrsA_0_10000,/your_path/unbalanced_train_segments/audio/0JNAHVgIrsA_0_10000.flac,7.9,4.2,5.1,7.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_0U_WBodzF-8_30000_40000,/your_path/unbalanced_train_segments/audio/0U_WBodzF-8_30000_40000.flac,6.3,3.3,4.0,4.8
+audiomos2025-track2-audio-unbalanced_train_segments_audio_1p-7ZbV70lU_30000_40000,/your_path/unbalanced_train_segments/audio/1p-7ZbV70lU_30000_40000.flac,3.9,3.0,2.6,2.9
+audiomos2025-track2-audio-unbalanced_train_segments_audio_2OND_Vw1foI_30000_40000,/your_path/unbalanced_train_segments/audio/2OND_Vw1foI_30000_40000.flac,7.3,2.4,3.7,7.5
+audiomos2025-track2-audio-unbalanced_train_segments_audio_2_KQUcAoy4Q_50000_60000,/your_path/unbalanced_train_segments/audio/2_KQUcAoy4Q_50000_60000.flac,5.4,5.7,2.9,4.1
+audiomos2025-track2-audio-unbalanced_train_segments_audio_2u7McELg5SM_30000_40000,/your_path/unbalanced_train_segments/audio/2u7McELg5SM_30000_40000.flac,7.0,3.5,4.8,6.2
+audiomos2025-track2-audio-unbalanced_train_segments_audio_3D_2WUVcCqg_210000_220000,/your_path/unbalanced_train_segments/audio/3D_2WUVcCqg_210000_220000.flac,5.0,2.7,3.2,4.9
+audiomos2025-track2-audio-unbalanced_train_segments_audio_3UEhlzDA8sE_270000_280000,/your_path/unbalanced_train_segments/audio/3UEhlzDA8sE_270000_280000.flac,6.0,2.7,2.9,5.2
+audiomos2025-track2-audio-unbalanced_train_segments_audio_3oQOehR1qj8_180000_190000,/your_path/unbalanced_train_segments/audio/3oQOehR1qj8_180000_190000.flac,5.4,4.0,2.9,5.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_4jffpo1xQ9k_140000_150000,/your_path/unbalanced_train_segments/audio/4jffpo1xQ9k_140000_150000.flac,6.0,3.4,3.6,6.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_5nkVvvHzxpg_60000_70000,/your_path/unbalanced_train_segments/audio/5nkVvvHzxpg_60000_70000.flac,6.4,3.4,4.3,5.3
+audiomos2025-track2-audio-unbalanced_train_segments_audio_6t5kRo-jJks_30000_40000,/your_path/unbalanced_train_segments/audio/6t5kRo-jJks_30000_40000.flac,4.5,2.4,2.2,4.2
+audiomos2025-track2-audio-unbalanced_train_segments_audio_8ifTwn21LRA_0_10000,/your_path/unbalanced_train_segments/audio/8ifTwn21LRA_0_10000.flac,6.4,4.6,3.9,5.4
+audiomos2025-track2-audio-unbalanced_train_segments_audio_8qtkUpprRic_60000_70000,/your_path/unbalanced_train_segments/audio/8qtkUpprRic_60000_70000.flac,5.9,3.8,3.2,4.2
+audiomos2025-track2-audio-unbalanced_train_segments_audio_9IKVWKAUg8E_10000_20000,/your_path/unbalanced_train_segments/audio/9IKVWKAUg8E_10000_20000.flac,6.2,3.1,4.2,6.1
+audiomos2025-track2-audio-unbalanced_train_segments_audio_9ybd-qoGNU0_0_10000,/your_path/unbalanced_train_segments/audio/9ybd-qoGNU0_0_10000.flac,5.5,5.9,3.9,4.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_AEiWagEoTYY_30000_40000,/your_path/unbalanced_train_segments/audio/AEiWagEoTYY_30000_40000.flac,7.5,3.2,4.5,6.8
+audiomos2025-track2-audio-unbalanced_train_segments_audio_AP85pp784ko_0_10000,/your_path/unbalanced_train_segments/audio/AP85pp784ko_0_10000.flac,6.8,1.7,4.8,6.3
+audiomos2025-track2-audio-unbalanced_train_segments_audio_AROokQkqAQM_70000_80000,/your_path/unbalanced_train_segments/audio/AROokQkqAQM_70000_80000.flac,7.2,4.7,4.4,6.1
+audiomos2025-track2-audio-unbalanced_train_segments_audio_Ae-kpgpWrC8_30000_40000,/your_path/unbalanced_train_segments/audio/Ae-kpgpWrC8_30000_40000.flac,5.9,2.4,4.0,5.1
+audiomos2025-track2-audio-unbalanced_train_segments_audio_BULDaFDvv-k_20000_30000,/your_path/unbalanced_train_segments/audio/BULDaFDvv-k_20000_30000.flac,4.7,4.7,2.9,4.1
+audiomos2025-track2-audio-unbalanced_train_segments_audio_BUS7LwSkQMc_50000_60000,/your_path/unbalanced_train_segments/audio/BUS7LwSkQMc_50000_60000.flac,4.0,5.0,3.2,3.7
+audiomos2025-track2-audio-unbalanced_train_segments_audio_Cc-1NbOqNS0_180000_190000,/your_path/unbalanced_train_segments/audio/Cc-1NbOqNS0_180000_190000.flac,5.0,5.1,3.0,3.7
+audiomos2025-track2-audio-unbalanced_train_segments_audio_CxDumVPYHd0_30000_40000,/your_path/unbalanced_train_segments/audio/CxDumVPYHd0_30000_40000.flac,6.4,4.0,2.9,5.3
+audiomos2025-track2-audio-unbalanced_train_segments_audio_DXbYTP44hsM_60000_70000,/your_path/unbalanced_train_segments/audio/DXbYTP44hsM_60000_70000.flac,4.9,3.0,2.5,4.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_DhG0ki4WB3w_30000_40000,/your_path/unbalanced_train_segments/audio/DhG0ki4WB3w_30000_40000.flac,5.1,2.6,2.8,4.9
+audiomos2025-track2-audio-unbalanced_train_segments_audio_EFB1v8UGXZk_530000_540000,/your_path/unbalanced_train_segments/audio/EFB1v8UGXZk_530000_540000.flac,5.1,2.7,3.0,4.2
+audiomos2025-track2-audio-unbalanced_train_segments_audio_G8pCNrwHP1c_30000_40000,/your_path/unbalanced_train_segments/audio/G8pCNrwHP1c_30000_40000.flac,5.3,3.5,3.1,4.6
+audiomos2025-track2-audio-unbalanced_train_segments_audio_GfsWvST_NdE_50000_60000,/your_path/unbalanced_train_segments/audio/GfsWvST_NdE_50000_60000.flac,6.5,4.1,3.8,6.5
+audiomos2025-track2-audio-unbalanced_train_segments_audio_HAPxIlIMpy8_0_10000,/your_path/unbalanced_train_segments/audio/HAPxIlIMpy8_0_10000.flac,5.7,2.6,4.5,4.9
+audiomos2025-track2-audio-unbalanced_train_segments_audio_HVnBrWyzHZQ_30000_40000,/your_path/unbalanced_train_segments/audio/HVnBrWyzHZQ_30000_40000.flac,6.3,3.9,5.4,6.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_HhhOprRsph4_20000_30000,/your_path/unbalanced_train_segments/audio/HhhOprRsph4_20000_30000.flac,5.5,3.2,4.7,4.9
+audiomos2025-track2-audio-unbalanced_train_segments_audio_I8_XdwMmG-I_30000_40000,/your_path/unbalanced_train_segments/audio/I8_XdwMmG-I_30000_40000.flac,3.9,4.0,3.1,3.9
+audiomos2025-track2-audio-unbalanced_train_segments_audio_JWyAxZ-_6RY_10000_20000,/your_path/unbalanced_train_segments/audio/JWyAxZ-_6RY_10000_20000.flac,6.4,3.4,4.3,5.8
+audiomos2025-track2-audio-unbalanced_train_segments_audio_K_GkTGJxTSk_30000_40000,/your_path/unbalanced_train_segments/audio/K_GkTGJxTSk_30000_40000.flac,6.2,3.7,5.1,5.5
+audiomos2025-track2-audio-unbalanced_train_segments_audio_Kob9K1bteY0_10000_20000,/your_path/unbalanced_train_segments/audio/Kob9K1bteY0_10000_20000.flac,6.3,3.3,5.7,5.7
+audiomos2025-track2-audio-unbalanced_train_segments_audio_LHjRDvn5m_Y_30000_40000,/your_path/unbalanced_train_segments/audio/LHjRDvn5m_Y_30000_40000.flac,4.7,2.7,3.5,4.5
+audiomos2025-track2-audio-unbalanced_train_segments_audio_LYx99aMqXoE_40000_50000,/your_path/unbalanced_train_segments/audio/LYx99aMqXoE_40000_50000.flac,5.4,2.3,3.0,4.7
+audiomos2025-track2-audio-unbalanced_train_segments_audio_Le_EjUVU7nI_20000_30000,/your_path/unbalanced_train_segments/audio/Le_EjUVU7nI_20000_30000.flac,4.5,3.7,2.8,3.5
+audiomos2025-track2-audio-unbalanced_train_segments_audio_MDBm73JbGH4_70000_80000,/your_path/unbalanced_train_segments/audio/MDBm73JbGH4_70000_80000.flac,5.1,4.4,2.8,4.4
+audiomos2025-track2-audio-unbalanced_train_segments_audio_MnjBeC1w-rM_90000_100000,/your_path/unbalanced_train_segments/audio/MnjBeC1w-rM_90000_100000.flac,4.7,2.9,2.6,4.2
+audiomos2025-track2-audio-unbalanced_train_segments_audio_OZQLbQGOiLY_10000_20000,/your_path/unbalanced_train_segments/audio/OZQLbQGOiLY_10000_20000.flac,6.6,4.0,3.4,6.3
+audiomos2025-track2-audio-unbalanced_train_segments_audio_P2lmCMWND1U_370000_380000,/your_path/unbalanced_train_segments/audio/P2lmCMWND1U_370000_380000.flac,4.4,4.7,3.2,4.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_PwIZLT6m7e0_0_10000,/your_path/unbalanced_train_segments/audio/PwIZLT6m7e0_0_10000.flac,7.0,3.0,5.5,6.8
+audiomos2025-track2-audio-unbalanced_train_segments_audio_Q3S-B2WIl4c_230000_240000,/your_path/unbalanced_train_segments/audio/Q3S-B2WIl4c_230000_240000.flac,4.2,3.1,2.5,4.2
+audiomos2025-track2-audio-unbalanced_train_segments_audio_QJ4Xv3j8_RU_30000_40000,/your_path/unbalanced_train_segments/audio/QJ4Xv3j8_RU_30000_40000.flac,5.9,3.0,3.9,5.2
+audiomos2025-track2-audio-unbalanced_train_segments_audio_Qtmo_EpSdT0_270000_280000,/your_path/unbalanced_train_segments/audio/Qtmo_EpSdT0_270000_280000.flac,4.5,3.2,3.2,4.8
+audiomos2025-track2-audio-unbalanced_train_segments_audio_SHDWuSkWDH4_30000_40000,/your_path/unbalanced_train_segments/audio/SHDWuSkWDH4_30000_40000.flac,7.2,5.1,4.0,6.8
+audiomos2025-track2-audio-unbalanced_train_segments_audio_SZ1wufoVs4s_20000_30000,/your_path/unbalanced_train_segments/audio/SZ1wufoVs4s_20000_30000.flac,5.7,2.1,2.6,5.4
+audiomos2025-track2-audio-unbalanced_train_segments_audio_SmmENkW0iUI_100000_110000,/your_path/unbalanced_train_segments/audio/SmmENkW0iUI_100000_110000.flac,4.7,3.6,3.5,4.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_Sv1jL5wy3Ew_10000_20000,/your_path/unbalanced_train_segments/audio/Sv1jL5wy3Ew_10000_20000.flac,3.6,3.3,2.4,3.9
+audiomos2025-track2-audio-unbalanced_train_segments_audio_UJiXTcYCeYE_60000_70000,/your_path/unbalanced_train_segments/audio/UJiXTcYCeYE_60000_70000.flac,4.8,2.5,1.9,3.5
+audiomos2025-track2-audio-unbalanced_train_segments_audio_UWfcOUN_NhQ_120000_130000,/your_path/unbalanced_train_segments/audio/UWfcOUN_NhQ_120000_130000.flac,6.4,3.5,5.1,5.9
+audiomos2025-track2-audio-unbalanced_train_segments_audio_UivOdpmr_tM_0_10000,/your_path/unbalanced_train_segments/audio/UivOdpmr_tM_0_10000.flac,7.0,2.0,3.2,6.9
+audiomos2025-track2-audio-unbalanced_train_segments_audio_UwMcqV5a1UM_0_10000,/your_path/unbalanced_train_segments/audio/UwMcqV5a1UM_0_10000.flac,6.8,3.4,3.8,6.3
+audiomos2025-track2-audio-unbalanced_train_segments_audio_VAd7jRx6r8M_20000_30000,/your_path/unbalanced_train_segments/audio/VAd7jRx6r8M_20000_30000.flac,4.6,4.4,3.3,4.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_VwQAwmLehoY_30000_40000,/your_path/unbalanced_train_segments/audio/VwQAwmLehoY_30000_40000.flac,6.4,4.6,5.4,5.6
+audiomos2025-track2-audio-unbalanced_train_segments_audio_WKhU0zYmZsQ_60000_70000,/your_path/unbalanced_train_segments/audio/WKhU0zYmZsQ_60000_70000.flac,6.6,4.7,5.9,6.4
+audiomos2025-track2-audio-unbalanced_train_segments_audio_XFbz69I7E1k_0_10000,/your_path/unbalanced_train_segments/audio/XFbz69I7E1k_0_10000.flac,4.7,3.8,2.9,4.4
+audiomos2025-track2-audio-unbalanced_train_segments_audio_XvYf2nM51bo_400000_410000,/your_path/unbalanced_train_segments/audio/XvYf2nM51bo_400000_410000.flac,6.2,4.6,4.4,5.5
+audiomos2025-track2-audio-unbalanced_train_segments_audio_Yi9crDhOHqc_30000_40000,/your_path/unbalanced_train_segments/audio/Yi9crDhOHqc_30000_40000.flac,6.1,3.7,2.7,5.6
+audiomos2025-track2-audio-unbalanced_train_segments_audio_YmqUfFlVWAM_40000_50000,/your_path/unbalanced_train_segments/audio/YmqUfFlVWAM_40000_50000.flac,6.3,4.8,3.9,6.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_ZjdAGuEwWy4_140000_150000,/your_path/unbalanced_train_segments/audio/ZjdAGuEwWy4_140000_150000.flac,7.0,3.8,5.1,6.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_ZvZZQbW3C1k_10000_20000,/your_path/unbalanced_train_segments/audio/ZvZZQbW3C1k_10000_20000.flac,7.0,4.5,6.5,6.8
+audiomos2025-track2-audio-unbalanced_train_segments_audio_aFoipCKKMm4_30000_40000,/your_path/unbalanced_train_segments/audio/aFoipCKKMm4_30000_40000.flac,5.4,5.1,3.8,5.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_aP8KyJFJcp0_80000_90000,/your_path/unbalanced_train_segments/audio/aP8KyJFJcp0_80000_90000.flac,6.8,3.3,3.7,6.6
+audiomos2025-track2-audio-unbalanced_train_segments_audio_bWW-Qb903KM_70000_80000,/your_path/unbalanced_train_segments/audio/bWW-Qb903KM_70000_80000.flac,5.6,3.5,3.6,5.3
+audiomos2025-track2-audio-unbalanced_train_segments_audio_dCMNnGzDPz0_110000_120000,/your_path/unbalanced_train_segments/audio/dCMNnGzDPz0_110000_120000.flac,6.6,3.2,4.3,5.4
+audiomos2025-track2-audio-unbalanced_train_segments_audio_d_ZcV4BY0b8_20000_30000,/your_path/unbalanced_train_segments/audio/d_ZcV4BY0b8_20000_30000.flac,5.1,2.9,2.6,4.9
+audiomos2025-track2-audio-unbalanced_train_segments_audio_fHxqs0o5Svo_70000_80000,/your_path/unbalanced_train_segments/audio/fHxqs0o5Svo_70000_80000.flac,5.7,3.4,3.5,5.0
+audiomos2025-track2-audio-unbalanced_train_segments_audio_flPvXHEf2z4_60000_70000,/your_path/unbalanced_train_segments/audio/flPvXHEf2z4_60000_70000.flac,5.2,3.3,3.8,3.8
+audiomos2025-track2-audio-unbalanced_train_segments_audio_gABsMFG779E_30000_40000,/your_path/unbalanced_train_segments/audio/gABsMFG779E_30000_40000.flac,5.0,4.3,3.5,3.9
+audiomos2025-track2-audio-unbalanced_train_segments_audio_gMJveCwHFko_0_10000,/your_path/unbalanced_train_segments/audio/gMJveCwHFko_0_10000.flac,7.0,3.0,4.0,6.3
+audiomos2025-track2-audio-unbalanced_train_segments_audio_hd2yDnpnkUU_100000_110000,/your_path/unbalanced_train_segments/audio/hd2yDnpnkUU_100000_110000.flac,5.6,2.7,3.1,4.6
+audiomos2025-track2-audio-unbalanced_train_segments_audio_i7OFKaVw_zM_30000_40000,/your_path/unbalanced_train_segments/audio/i7OFKaVw_zM_30000_40000.flac,5.4,3.8,3.6,4.3
+audiomos2025-track2-audio-unbalanced_train_segments_audio_j72lFUXkMqI_10000_20000,/your_path/unbalanced_train_segments/audio/j72lFUXkMqI_10000_20000.flac,6.1,3.5,4.0,4.7
+audiomos2025-track2-audio-unbalanced_train_segments_audio_jFliliXIbj8_0_10000,/your_path/unbalanced_train_segments/audio/jFliliXIbj8_0_10000.flac,7.5,6.7,5.3,5.1
+audiomos2025-track2-audio-unbalanced_train_segments_audio_jxi9rb15Rr8_60000_70000,/your_path/unbalanced_train_segments/audio/jxi9rb15Rr8_60000_70000.flac,5.2,3.0,4.5,4.3
+audiomos2025-track2-audio-unbalanced_train_segments_audio_lc4NoiY7Dys_40000_50000,/your_path/unbalanced_train_segments/audio/lc4NoiY7Dys_40000_50000.flac,5.9,3.3,2.7,4.9
+audiomos2025-track2-audio-unbalanced_train_segments_audio_oGsNV8e6umg_20000_30000,/your_path/unbalanced_train_segments/audio/oGsNV8e6umg_20000_30000.flac,7.2,3.6,6.8,6.6
+audiomos2025-track2-audio-unbalanced_train_segments_audio_opI9B_EkDgs_30000_40000,/your_path/unbalanced_train_segments/audio/opI9B_EkDgs_30000_40000.flac,5.8,4.0,2.9,5.5
+audiomos2025-track2-audio-unbalanced_train_segments_audio_opXFz6LCMnI_10000_20000,/your_path/unbalanced_train_segments/audio/opXFz6LCMnI_10000_20000.flac,7.5,5.2,4.2,7.1
+audiomos2025-track2-audio-unbalanced_train_segments_audio_p9-_S8gRHFM_60000_70000,/your_path/unbalanced_train_segments/audio/p9-_S8gRHFM_60000_70000.flac,6.0,2.4,4.7,5.4
+audiomos2025-track2-audio-unbalanced_train_segments_audio_pPNAFGYOBOA_20000_30000,/your_path/unbalanced_train_segments/audio/pPNAFGYOBOA_20000_30000.flac,6.8,4.8,4.1,5.3
+audiomos2025-track2-audio-unbalanced_train_segments_audio_qkQ7ooIUNd0_60000_70000,/your_path/unbalanced_train_segments/audio/qkQ7ooIUNd0_60000_70000.flac,6.8,4.4,5.0,6.4
+audiomos2025-track2-audio-unbalanced_train_segments_audio_rR6yvm3hUrc_50000_60000,/your_path/unbalanced_train_segments/audio/rR6yvm3hUrc_50000_60000.flac,4.0,2.4,2.1,4.1
+audiomos2025-track2-audio-unbalanced_train_segments_audio_rgJIgOI586c_40000_50000,/your_path/unbalanced_train_segments/audio/rgJIgOI586c_40000_50000.flac,5.4,2.8,2.6,4.1
+audiomos2025-track2-audio-unbalanced_train_segments_audio_rjSJKaN2cT8_30000_40000,/your_path/unbalanced_train_segments/audio/rjSJKaN2cT8_30000_40000.flac,5.2,3.2,3.5,4.6
+audiomos2025-track2-audio-unbalanced_train_segments_audio_taluMvQMS_Y_30000_40000,/your_path/unbalanced_train_segments/audio/taluMvQMS_Y_30000_40000.flac,5.2,3.6,5.0,5.4
+audiomos2025-track2-audio-unbalanced_train_segments_audio_trxgXdK43z0_30000_40000,/your_path/unbalanced_train_segments/audio/trxgXdK43z0_30000_40000.flac,4.5,2.6,2.7,4.4
+audiomos2025-track2-audio-unbalanced_train_segments_audio_ttqdU2PGk0s_80000_90000,/your_path/unbalanced_train_segments/audio/ttqdU2PGk0s_80000_90000.flac,6.1,3.9,3.8,5.7
+audiomos2025-track2-audio-unbalanced_train_segments_audio_u1zZ6TG4XfA_10000_20000,/your_path/unbalanced_train_segments/audio/u1zZ6TG4XfA_10000_20000.flac,5.3,2.8,4.1,5.6
+audiomos2025-track2-audio-unbalanced_train_segments_audio_v112Ebgs1CU_110000_120000,/your_path/unbalanced_train_segments/audio/v112Ebgs1CU_110000_120000.flac,6.3,3.6,4.7,5.6
+audiomos2025-track2-audio-unbalanced_train_segments_audio_xAAaxSwsE5g_20000_30000,/your_path/unbalanced_train_segments/audio/xAAaxSwsE5g_20000_30000.flac,5.9,3.2,6.1,6.3
+audiomos2025-track2-audio-unbalanced_train_segments_audio_xGzpK8xOJj8_280000_290000,/your_path/unbalanced_train_segments/audio/xGzpK8xOJj8_280000_290000.flac,7.2,4.8,6.2,5.8
+audiomos2025-track2-audio-unbalanced_train_segments_audio_xYM24pfY1mo_260000_270000,/your_path/unbalanced_train_segments/audio/xYM24pfY1mo_260000_270000.flac,6.2,4.1,6.3,5.5
+audiomos2025-track2-audio-unbalanced_train_segments_audio_yBVCfYRkCAQ_0_10000,/your_path/unbalanced_train_segments/audio/yBVCfYRkCAQ_0_10000.flac,4.3,2.5,1.9,3.2
+audiomos2025-track2-music-MUSDB18_test_AM_Contra_-_Heart_Peripheral_vocals,/your_path/MUSDB18/test/AM Contra - Heart Peripheral/vocals.wav,8.4,2.6,7.8,8.1
+audiomos2025-track2-music-MUSDB18_test_Carlos_Gonzalez_-_A_Place_For_Us_other,/your_path/MUSDB18/test/Carlos Gonzalez - A Place For Us/other.wav,7.4,4.6,7.1,7.0
+audiomos2025-track2-music-MUSDB18_test_Carlos_Gonzalez_-_A_Place_For_Us_vocals,/your_path/MUSDB18/test/Carlos Gonzalez - A Place For Us/vocals.wav,7.9,2.5,6.7,7.5
+audiomos2025-track2-music-MUSDB18_test_Georgia_Wonder_-_Siren_drums,/your_path/MUSDB18/test/Georgia Wonder - Siren/drums.wav,8.4,5.0,7.4,8.4
+audiomos2025-track2-music-MUSDB18_test_Girls_Under_Glass_-_We_Feel_Alright_other,/your_path/MUSDB18/test/Girls Under Glass - We Feel Alright/other.wav,7.7,6.2,7.3,6.8
+audiomos2025-track2-music-MUSDB18_test_Juliet's_Rescue_-_Heartbeats_drums,/your_path/MUSDB18/test/Juliet's Rescue - Heartbeats/drums.wav,8.4,4.3,7.3,8.4
+audiomos2025-track2-music-MUSDB18_test_Mu_-_Too_Bright_drums,/your_path/MUSDB18/test/Mu - Too Bright/drums.wav,8.0,4.0,7.8,8.1
+audiomos2025-track2-music-MUSDB18_test_Mu_-_Too_Bright_other,/your_path/MUSDB18/test/Mu - Too Bright/other.wav,7.8,5.1,7.4,7.0
+audiomos2025-track2-music-MUSDB18_test_PR_-_Happy_Daze_bass,/your_path/MUSDB18/test/PR - Happy Daze/bass.wav,6.7,1.8,5.1,5.8
+audiomos2025-track2-music-MUSDB18_test_Side_Effects_Project_-_Sing_With_Me_other,/your_path/MUSDB18/test/Side Effects Project - Sing With Me/other.wav,7.4,6.1,5.2,6.2
+audiomos2025-track2-music-MUSDB18_test_The_Easton_Ellises_(Baumi)_-_SDRNR_bass,/your_path/MUSDB18/test/The Easton Ellises (Baumi) - SDRNR/bass.wav,8.0,3.9,6.7,7.9
+audiomos2025-track2-music-MUSDB18_test_The_Easton_Ellises_(Baumi)_-_SDRNR_other,/your_path/MUSDB18/test/The Easton Ellises (Baumi) - SDRNR/other.wav,8.2,5.8,6.8,7.6
+audiomos2025-track2-music-MUSDB18_test_The_Easton_Ellises_-_Falcon_69_drums,/your_path/MUSDB18/test/The Easton Ellises - Falcon 69/drums.wav,8.1,4.4,7.7,7.9
+audiomos2025-track2-music-MUSDB18_test_The_Sunshine_Garcia_Band_-_For_I_Am_The_Moon_mixture,/your_path/MUSDB18/test/The Sunshine Garcia Band - For I Am The Moon/mixture.wav,8.3,7.2,8.2,7.7
+audiomos2025-track2-music-MUSDB18_test_The_Sunshine_Garcia_Band_-_For_I_Am_The_Moon_other,/your_path/MUSDB18/test/The Sunshine Garcia Band - For I Am The Moon/other.wav,7.7,3.7,7.9,7.9
+audiomos2025-track2-music-MUSDB18_test_Triviul_feat._The_Fiend_-_Widow_bass,/your_path/MUSDB18/test/Triviul feat. The Fiend - Widow/bass.wav,8.1,3.9,5.8,7.2
+audiomos2025-track2-music-MUSDB18_test_Triviul_feat._The_Fiend_-_Widow_other,/your_path/MUSDB18/test/Triviul feat. The Fiend - Widow/other.wav,7.8,5.3,6.8,6.9
+audiomos2025-track2-music-MUSDB18_test_Triviul_feat._The_Fiend_-_Widow_vocals,/your_path/MUSDB18/test/Triviul feat. The Fiend - Widow/vocals.wav,8.5,3.2,7.4,7.9
+audiomos2025-track2-music-MUSDB18_test_Zeno_-_Signs_bass,/your_path/MUSDB18/test/Zeno - Signs/bass.wav,7.4,2.3,6.2,6.8
+audiomos2025-track2-music-MUSDB18_train_Alexander_Ross_-_Goodbye_Bolero_bass,/your_path/MUSDB18/train/Alexander Ross - Goodbye Bolero/bass.wav,7.7,2.7,6.0,6.9
+audiomos2025-track2-music-MUSDB18_train_AvaLuna_-_Waterduct_vocals,/your_path/MUSDB18/train/AvaLuna - Waterduct/vocals.wav,4.4,1.7,0.7,1.2
+audiomos2025-track2-music-MUSDB18_train_Chris_Durban_-_Celebrate_bass,/your_path/MUSDB18/train/Chris Durban - Celebrate/bass.wav,6.8,2.6,4.4,6.0
+audiomos2025-track2-music-MUSDB18_train_Creepoid_-_OldTree_mixture,/your_path/MUSDB18/train/Creepoid - OldTree/mixture.wav,7.9,6.5,7.7,7.6
+audiomos2025-track2-music-MUSDB18_train_Giselle_-_Moss_drums,/your_path/MUSDB18/train/Giselle - Moss/drums.wav,7.8,4.6,6.4,7.2
+audiomos2025-track2-music-MUSDB18_train_Jokers_Jacks_&_Kings_-_Sea_Of_Leaves_mixture,"/your_path/MUSDB18/train/Jokers, Jacks & Kings - Sea Of Leaves/mixture.wav",7.1,6.8,7.1,6.8
+audiomos2025-track2-music-MUSDB18_train_Leaf_-_Summerghost_drums,/your_path/MUSDB18/train/Leaf - Summerghost/drums.wav,8.2,2.5,7.1,7.7
+audiomos2025-track2-music-MUSDB18_train_Leaf_-_Summerghost_mixture,/your_path/MUSDB18/train/Leaf - Summerghost/mixture.wav,8.2,6.0,7.8,7.9
+audiomos2025-track2-music-MUSDB18_train_Leaf_-_Wicked_other,/your_path/MUSDB18/train/Leaf - Wicked/other.wav,7.8,3.7,7.5,7.6
+audiomos2025-track2-music-MUSDB18_train_Leaf_-_Wicked_vocals,/your_path/MUSDB18/train/Leaf - Wicked/vocals.wav,7.3,2.5,7.0,7.3
+audiomos2025-track2-music-MUSDB18_train_Matthew_Entwistle_-_Dont_You_Ever_vocals,/your_path/MUSDB18/train/Matthew Entwistle - Dont You Ever/vocals.wav,6.9,2.1,6.9,7.4
+audiomos2025-track2-music-MUSDB18_train_Music_Delta_-_80s_Rock_other,/your_path/MUSDB18/train/Music Delta - 80s Rock/other.wav,7.8,1.6,6.9,7.8
+audiomos2025-track2-music-MUSDB18_train_Music_Delta_-_Beatles_other,/your_path/MUSDB18/train/Music Delta - Beatles/other.wav,8.1,1.7,6.9,7.6
+audiomos2025-track2-music-MUSDB18_train_Music_Delta_-_Britpop_other,/your_path/MUSDB18/train/Music Delta - Britpop/other.wav,8.0,2.0,6.1,6.9
+audiomos2025-track2-music-MUSDB18_train_Music_Delta_-_Country1_drums,/your_path/MUSDB18/train/Music Delta - Country1/drums.wav,7.8,1.9,7.2,7.7
+audiomos2025-track2-music-MUSDB18_train_Music_Delta_-_Disco_mixture,/your_path/MUSDB18/train/Music Delta - Disco/mixture.wav,8.1,7.3,6.6,7.6
+audiomos2025-track2-music-MUSDB18_train_Music_Delta_-_Gospel_drums,/your_path/MUSDB18/train/Music Delta - Gospel/drums.wav,7.9,3.9,7.5,7.5
+audiomos2025-track2-music-MUSDB18_train_Music_Delta_-_Grunge_drums,/your_path/MUSDB18/train/Music Delta - Grunge/drums.wav,7.4,1.3,5.6,7.3
+audiomos2025-track2-music-MUSDB18_train_Music_Delta_-_Grunge_mixture,/your_path/MUSDB18/train/Music Delta - Grunge/mixture.wav,7.2,1.3,5.5,6.8
+audiomos2025-track2-music-MUSDB18_train_Music_Delta_-_Punk_other,/your_path/MUSDB18/train/Music Delta - Punk/other.wav,7.8,1.6,5.7,7.8
+audiomos2025-track2-music-MUSDB18_train_Music_Delta_-_Rock_other,/your_path/MUSDB18/train/Music Delta - Rock/other.wav,7.8,2.5,5.8,7.5
+audiomos2025-track2-music-MUSDB18_train_Music_Delta_-_Rockabilly_vocals,/your_path/MUSDB18/train/Music Delta - Rockabilly/vocals.wav,8.3,2.3,7.1,7.6
+audiomos2025-track2-music-MUSDB18_train_Secret_Mountains_-_High_Horse_drums,/your_path/MUSDB18/train/Secret Mountains - High Horse/drums.wav,8.0,4.3,7.0,7.8
+audiomos2025-track2-music-MUSDB18_train_Swinging_Steaks_-_Lost_My_Way_bass,/your_path/MUSDB18/train/Swinging Steaks - Lost My Way/bass.wav,7.3,3.4,6.2,7.0
+audiomos2025-track2-music-MUSDB18_train_The_Districts_-_Vermont_bass,/your_path/MUSDB18/train/The Districts - Vermont/bass.wav,5.6,2.0,4.8,4.9
+audiomos2025-track2-music-MUSDB18_train_The_Scarlet_Brand_-_Les_Fleurs_Du_Mal_other,/your_path/MUSDB18/train/The Scarlet Brand - Les Fleurs Du Mal/other.wav,6.1,3.9,6.5,6.5
+audiomos2025-track2-music-MUSDB18_train_Triviul_-_Dorothy_drums,/your_path/MUSDB18/train/Triviul - Dorothy/drums.wav,7.7,3.8,6.7,7.4
+audiomos2025-track2-music-MUSDB18_train_Young_Griffo_-_Facade_mixture,/your_path/MUSDB18/train/Young Griffo - Facade/mixture.wav,8.1,6.8,7.6,7.8
+audiomos2025-track2-music-musiccaps_0hw_BB4QN34,/your_path/musiccaps/0hw_BB4QN34.wav,7.3,3.2,7.0,7.2
+audiomos2025-track2-music-musiccaps_1FnA3w94zXI,/your_path/musiccaps/1FnA3w94zXI.wav,5.5,3.5,5.5,5.8
+audiomos2025-track2-music-musiccaps_1hWAOReJehw,/your_path/musiccaps/1hWAOReJehw.wav,6.3,5.3,5.4,5.7
+audiomos2025-track2-music-musiccaps_2VFVe0RCn7g,/your_path/musiccaps/2VFVe0RCn7g.wav,5.2,3.2,5.7,5.3
+audiomos2025-track2-music-musiccaps_2ZB7DUGOdZw,/your_path/musiccaps/2ZB7DUGOdZw.wav,2.5,4.9,1.2,2.4
+audiomos2025-track2-music-musiccaps_2xATintzaj4,/your_path/musiccaps/2xATintzaj4.wav,7.4,2.6,6.8,7.2
+audiomos2025-track2-music-musiccaps_3zPvfVmL0nE,/your_path/musiccaps/3zPvfVmL0nE.wav,7.0,6.2,6.0,6.9
+audiomos2025-track2-music-musiccaps_5n8I-br2n1U,/your_path/musiccaps/5n8I-br2n1U.wav,4.8,6.8,6.1,4.3
+audiomos2025-track2-music-musiccaps_7zP5kNyDn88,/your_path/musiccaps/7zP5kNyDn88.wav,6.0,5.7,6.7,5.7
+audiomos2025-track2-music-musiccaps_8pc8fjPIV-Q,/your_path/musiccaps/8pc8fjPIV-Q.wav,5.0,7.9,5.8,4.7
+audiomos2025-track2-music-musiccaps_A_NkQM85g6Q,/your_path/musiccaps/A_NkQM85g6Q.wav,7.1,4.1,7.7,7.4
+audiomos2025-track2-music-musiccaps_B8pesuUc8Ek,/your_path/musiccaps/B8pesuUc8Ek.wav,3.8,5.7,4.6,3.9
+audiomos2025-track2-music-musiccaps_ByF0pp-dVEo,/your_path/musiccaps/ByF0pp-dVEo.wav,3.1,5.6,3.6,2.4
+audiomos2025-track2-music-musiccaps_C4MeKaeaPcU,/your_path/musiccaps/C4MeKaeaPcU.wav,6.6,4.3,5.4,6.1
+audiomos2025-track2-music-musiccaps_DNYDyXn6qso,/your_path/musiccaps/DNYDyXn6qso.wav,5.1,6.4,6.9,6.1
+audiomos2025-track2-music-musiccaps_ESbtW0CUmp4,/your_path/musiccaps/ESbtW0CUmp4.wav,4.8,4.6,5.1,5.2
+audiomos2025-track2-music-musiccaps_FNnKFUkFJ5M,/your_path/musiccaps/FNnKFUkFJ5M.wav,6.5,5.7,6.4,6.3
+audiomos2025-track2-music-musiccaps_G22YfD5xxMU,/your_path/musiccaps/G22YfD5xxMU.wav,3.6,6.9,3.7,3.3
+audiomos2025-track2-music-musiccaps_GcOOmVSM8Uw,/your_path/musiccaps/GcOOmVSM8Uw.wav,5.5,7.0,3.5,4.4
+audiomos2025-track2-music-musiccaps_Gow0TlxIx7U,/your_path/musiccaps/Gow0TlxIx7U.wav,6.1,6.2,6.5,6.3
+audiomos2025-track2-music-musiccaps_HkXSX7Kdhms,/your_path/musiccaps/HkXSX7Kdhms.wav,3.7,7.0,3.1,3.3
+audiomos2025-track2-music-musiccaps_KB4e9v_5uTE,/your_path/musiccaps/KB4e9v_5uTE.wav,5.7,3.3,5.6,5.9
+audiomos2025-track2-music-musiccaps_KjJj5-HvSvQ,/your_path/musiccaps/KjJj5-HvSvQ.wav,8.2,6.9,6.3,6.3
+audiomos2025-track2-music-musiccaps_L9xj_v65UhU,/your_path/musiccaps/L9xj_v65UhU.wav,7.6,4.1,6.6,5.8
+audiomos2025-track2-music-musiccaps_LoTRWc9WK9Q,/your_path/musiccaps/LoTRWc9WK9Q.wav,5.8,3.9,4.6,4.6
+audiomos2025-track2-music-musiccaps_MNlzpCwdh4g,/your_path/musiccaps/MNlzpCwdh4g.wav,5.5,4.6,6.3,5.8
+audiomos2025-track2-music-musiccaps_NlUf1ppoSG4,/your_path/musiccaps/NlUf1ppoSG4.wav,7.5,4.2,6.8,6.5
+audiomos2025-track2-music-musiccaps_OvjmfGU4y_M,/your_path/musiccaps/OvjmfGU4y_M.wav,4.8,7.2,5.0,3.8
+audiomos2025-track2-music-musiccaps_Qz8hNRg-7G0,/your_path/musiccaps/Qz8hNRg-7G0.wav,3.6,5.9,3.2,3.2
+audiomos2025-track2-music-musiccaps_RNwiEsjrhiQ,/your_path/musiccaps/RNwiEsjrhiQ.wav,7.3,6.8,7.5,7.2
+audiomos2025-track2-music-musiccaps_YE2rN3xknlk,/your_path/musiccaps/YE2rN3xknlk.wav,6.9,5.1,6.1,6.3
+audiomos2025-track2-music-musiccaps_YvFY7xU2kGk,/your_path/musiccaps/YvFY7xU2kGk.wav,6.8,3.9,6.9,7.1
+audiomos2025-track2-music-musiccaps_ZOGMpGQQ3FI,/your_path/musiccaps/ZOGMpGQQ3FI.wav,6.1,3.3,6.0,6.2
+audiomos2025-track2-music-musiccaps_ZSGRzalgx4s,/your_path/musiccaps/ZSGRzalgx4s.wav,6.5,6.5,6.6,6.7
+audiomos2025-track2-music-musiccaps_a2Wuroc8DQU,/your_path/musiccaps/a2Wuroc8DQU.wav,5.0,4.7,6.5,6.3
+audiomos2025-track2-music-musiccaps_eWqD_VOympU,/your_path/musiccaps/eWqD_VOympU.wav,8.1,3.7,6.4,7.9
+audiomos2025-track2-music-musiccaps_em7akjDUsWk,/your_path/musiccaps/em7akjDUsWk.wav,6.3,5.0,5.3,5.4
+audiomos2025-track2-music-musiccaps_jZi0VVWt72E,/your_path/musiccaps/jZi0VVWt72E.wav,6.0,4.4,4.8,4.7
+audiomos2025-track2-music-musiccaps_lnYOC9tKUBs,/your_path/musiccaps/lnYOC9tKUBs.wav,5.7,4.5,3.9,4.9
+audiomos2025-track2-music-musiccaps_mLm8upEhc_s,/your_path/musiccaps/mLm8upEhc_s.wav,5.4,6.9,3.9,3.4
+audiomos2025-track2-music-musiccaps_nnc6m1pBJ4c,/your_path/musiccaps/nnc6m1pBJ4c.wav,4.3,6.0,5.2,4.8
+audiomos2025-track2-music-musiccaps_ot6SpwD1hzk,/your_path/musiccaps/ot6SpwD1hzk.wav,4.2,6.9,5.4,4.6
+audiomos2025-track2-music-musiccaps_qlk02ytcnPU,/your_path/musiccaps/qlk02ytcnPU.wav,6.2,4.9,5.4,5.1
+audiomos2025-track2-music-musiccaps_qpN3Aqrr8mg,/your_path/musiccaps/qpN3Aqrr8mg.wav,5.8,4.4,4.4,6.0
+audiomos2025-track2-music-musiccaps_r6QD2E-YesI,/your_path/musiccaps/r6QD2E-YesI.wav,4.3,6.5,5.0,3.3
+audiomos2025-track2-music-musiccaps_s2O2xaRfje0,/your_path/musiccaps/s2O2xaRfje0.wav,7.6,4.1,7.0,7.4
+audiomos2025-track2-music-musiccaps_sL01xTmV_Fc,/your_path/musiccaps/sL01xTmV_Fc.wav,4.6,5.6,4.9,4.2
+audiomos2025-track2-music-musiccaps_w3QIsHxQfPE,/your_path/musiccaps/w3QIsHxQfPE.wav,4.6,6.5,4.4,5.2
+audiomos2025-track2-music-musiccaps_wIP7AqIOU1s,/your_path/musiccaps/wIP7AqIOU1s.wav,3.7,5.2,2.9,2.9
+audiomos2025-track2-music-musiccaps_wMi_0eEIpcM,/your_path/musiccaps/wMi_0eEIpcM.wav,3.7,5.6,4.2,3.7
+audiomos2025-track2-music-musiccaps_x22NHqwKSNE,/your_path/musiccaps/x22NHqwKSNE.wav,5.4,7.1,5.6,5.0
+audiomos2025-track2-music-musiccaps_xvryKn-V-JM,/your_path/musiccaps/xvryKn-V-JM.wav,5.9,5.9,6.2,5.7
+audiomos2025-track2-music-musiccaps_yYpfb_xV--4,/your_path/musiccaps/yYpfb_xV--4.wav,4.9,5.2,4.6,5.1
+audiomos2025-track2-speech-EARS_p009_emo_distress_sentences,/your_path/EARS/p009/emo_distress_sentences.wav,7.8,1.1,6.2,7.7
+audiomos2025-track2-speech-EARS_p022_emo_cuteness_sentences,/your_path/EARS/p022/emo_cuteness_sentences.wav,8.4,1.4,6.9,7.4
+audiomos2025-track2-speech-EARS_p028_emo_interest_freeform,/your_path/EARS/p028/emo_interest_freeform.wav,7.5,1.3,6.5,7.5
+audiomos2025-track2-speech-EARS_p029_emo_guilt_sentences,/your_path/EARS/p029/emo_guilt_sentences.wav,8.0,1.0,6.7,7.2
+audiomos2025-track2-speech-EARS_p036_emo_cuteness_sentences,/your_path/EARS/p036/emo_cuteness_sentences.wav,7.2,1.9,6.5,7.0
+audiomos2025-track2-speech-EARS_p041_emo_contentment_sentences,/your_path/EARS/p041/emo_contentment_sentences.wav,8.0,1.4,7.0,7.2
+audiomos2025-track2-speech-EARS_p064_sentences_02_slow,/your_path/EARS/p064/sentences_02_slow.wav,7.3,1.3,6.5,6.5
+audiomos2025-track2-speech-EARS_p086_emo_extasy_sentences,/your_path/EARS/p086/emo_extasy_sentences.wav,7.8,1.3,7.5,7.9
+audiomos2025-track2-speech-EARS_p106_emo_confusion_sentences,/your_path/EARS/p106/emo_confusion_sentences.wav,7.8,1.3,6.2,6.6
+audiomos2025-track2-speech-LibriTTS_train-clean-360_1445_139387_1445_139387_000005_000003,/your_path/LibriTTS/train-clean-360/1445/139387/1445_139387_000005_000003.wav,7.3,1.3,6.6,7.4
+audiomos2025-track2-speech-LibriTTS_train-clean-360_4438_48525_4438_48525_000001_000000,/your_path/LibriTTS/train-clean-360/4438/48525/4438_48525_000001_000000.wav,8.3,0.9,7.1,8.2
+audiomos2025-track2-speech-LibriTTS_train-other-500_1733_139046_1733_139046_000012_000010,/your_path/LibriTTS/train-other-500/1733/139046/1733_139046_000012_000010.wav,6.8,1.4,6.6,7.0
+audiomos2025-track2-speech-LibriTTS_train-other-500_2050_157659_2050_157659_000031_000000,/your_path/LibriTTS/train-other-500/2050/157659/2050_157659_000031_000000.wav,7.3,1.3,6.7,7.4
+audiomos2025-track2-speech-LibriTTS_train-other-500_2671_157948_2671_157948_000013_000003,/your_path/LibriTTS/train-other-500/2671/157948/2671_157948_000013_000003.wav,7.1,1.5,5.9,6.5
+audiomos2025-track2-speech-LibriTTS_train-other-500_3021_121440_3021_121440_000061_000001,/your_path/LibriTTS/train-other-500/3021/121440/3021_121440_000061_000001.wav,6.4,1.3,5.4,6.3
+audiomos2025-track2-speech-LibriTTS_train-other-500_4179_25937_4179_25937_000031_000002,/your_path/LibriTTS/train-other-500/4179/25937/4179_25937_000031_000002.wav,7.9,1.1,7.5,8.0
+audiomos2025-track2-speech-LibriTTS_train-other-500_483_125126_483_125126_000072_000005,/your_path/LibriTTS/train-other-500/483/125126/483_125126_000072_000005.wav,6.5,1.8,6.3,6.3
+audiomos2025-track2-speech-LibriTTS_train-other-500_5045_1196_5045_1196_000017_000000,/your_path/LibriTTS/train-other-500/5045/1196/5045_1196_000017_000000.wav,6.8,1.1,6.4,6.7
+audiomos2025-track2-speech-LibriTTS_train-other-500_6009_57639_6009_57639_000037_000004,/your_path/LibriTTS/train-other-500/6009/57639/6009_57639_000037_000004.wav,6.5,1.6,6.5,6.7
+audiomos2025-track2-speech-LibriTTS_train-other-500_6407_66983_6407_66983_000011_000005,/your_path/LibriTTS/train-other-500/6407/66983/6407_66983_000011_000005.wav,7.0,1.0,6.5,6.7
+audiomos2025-track2-speech-LibriTTS_train-other-500_6945_60535_6945_60535_000016_000002,/your_path/LibriTTS/train-other-500/6945/60535/6945_60535_000016_000002.wav,7.8,1.5,7.2,7.7
+audiomos2025-track2-speech-LibriTTS_train-other-500_6950_86822_6950_86822_000016_000000,/your_path/LibriTTS/train-other-500/6950/86822/6950_86822_000016_000000.wav,7.7,1.2,7.5,7.8
+audiomos2025-track2-speech-LibriTTS_train-other-500_7691_293948_7691_293948_000036_000000,/your_path/LibriTTS/train-other-500/7691/293948/7691_293948_000036_000000.wav,6.1,1.1,5.9,6.5
+audiomos2025-track2-speech-LibriTTS_train-other-500_8180_274725_8180_274725_000011_000004,/your_path/LibriTTS/train-other-500/8180/274725/8180_274725_000011_000004.wav,7.5,1.0,6.6,7.0
+audiomos2025-track2-speech-LibriTTS_train-other-500_8240_116288_8240_116288_000009_000003,/your_path/LibriTTS/train-other-500/8240/116288/8240_116288_000009_000003.wav,7.4,1.6,7.3,7.7
+audiomos2025-track2-speech-LibriTTS_train-other-500_8799_270794_8799_270794_000014_000008,/your_path/LibriTTS/train-other-500/8799/270794/8799_270794_000014_000008.wav,7.1,1.3,6.2,6.6
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_18965935.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_18965935.mp3,4.8,2.0,3.4,3.4
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_19050335.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_19050335.mp3,6.0,2.0,4.1,4.4
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_19061358.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_19061358.mp3,6.9,1.7,5.6,6.2
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_19579198.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_19579198.mp3,6.9,1.7,4.9,5.9
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_19636993.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_19636993.mp3,6.0,1.0,5.1,5.7
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_19789111.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_19789111.mp3,7.2,1.3,6.0,6.6
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_20001348.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_20001348.mp3,4.9,1.2,4.7,4.4
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_20272190.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_20272190.mp3,5.3,3.1,4.9,4.3
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_20310463.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_20310463.mp3,6.0,2.1,5.2,5.5
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_20449370.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_20449370.mp3,6.3,1.1,5.8,6.1
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_20535661.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_20535661.mp3,5.4,1.2,4.9,5.6
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_20698464.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_20698464.mp3,6.5,1.0,6.1,6.2
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_20781321.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_20781321.mp3,4.3,2.6,3.7,3.8
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_20786764.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_20786764.mp3,3.8,1.9,3.2,3.9
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_21102762.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_21102762.mp3,5.6,2.3,5.5,5.7
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_21331417.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_21331417.mp3,5.6,1.5,5.2,5.5
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_23145853.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_23145853.mp3,6.2,1.4,5.6,5.8
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_23938283.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_23938283.mp3,6.8,2.1,5.6,6.4
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_25918379.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_25918379.mp3,4.1,2.2,3.3,3.1
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_26166727.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_26166727.mp3,6.3,1.1,5.7,6.2
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_28648218.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_28648218.mp3,6.8,2.2,5.5,6.6
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_29804456.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_29804456.mp3,7.1,1.0,5.8,6.5
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_31888763.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_31888763.mp3,5.7,1.0,3.8,4.4
+audiomos2025-track2-speech-cv-corpus-13.0-2023-03-09_en_clips_common_voice_en_32389147.mp3,/your_path/cv-corpus-13.0-2023-03-09/en/clips/common_voice_en_32389147.mp3,6.5,1.3,5.6,5.8
