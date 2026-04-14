@@ -267,7 +267,7 @@ def main():
     
     # 保存结果
     output_data = {
-        'statistics': statistics,
+        'summary': statistics,
         'results': results
     }
     
