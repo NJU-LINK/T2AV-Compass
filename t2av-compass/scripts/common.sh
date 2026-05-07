@@ -18,8 +18,10 @@ export PIP_CACHE_DIR="${PIP_CACHE_DIR:-${CACHE_ROOT}/pip}"
 export MPLCONFIGDIR="${MPLCONFIGDIR:-${CACHE_ROOT}/matplotlib}"
 export TMPDIR="${TMPDIR:-${CACHE_ROOT}/tmp}"
 export T2AV_DOWNLOAD_DIR="${T2AV_DOWNLOAD_DIR:-${CACHE_ROOT}/downloads}"
-export HF_ENDPOINT="${HF_ENDPOINT:-https://huggingface.co}"
 export T2AV_GITHUB_MIRROR_PREFIX="${T2AV_GITHUB_MIRROR_PREFIX:-}"
+export T2AV_HF_MIRROR_ENDPOINT="${T2AV_HF_MIRROR_ENDPOINT:-https://hf-mirror.com}"
+export HF_ENDPOINT="${HF_ENDPOINT:-${T2AV_HF_MIRROR_ENDPOINT}}"
+export T2AV_CORE_ENV="${T2AV_CORE_ENV:-t2av-core}"
 
 if [[ -z "${PYTHON_BIN:-}" ]]; then
   if command -v python3 >/dev/null 2>&1; then
@@ -54,6 +56,7 @@ ensure_conda() {
     local candidate
     for candidate in \
       "${T2AV_CONDA_EXE:-}" \
+      "/opt/conda/bin/conda" \
       "${HOME}/miniconda3/bin/conda" \
       "${HOME}/anaconda3/bin/conda"; do
       if [[ -n "${candidate}" && -x "${candidate}" ]]; then
@@ -73,7 +76,9 @@ ensure_conda() {
 }
 
 conda_env_exists() {
-  conda env list | awk '{print $1}' | grep -Fxq "$1"
+  local env_name="$1"
+  local env_root="${CONDA_ENVS_PATH%%:*}"
+  conda env list | awk '{print $1}' | grep -Fxq "${env_name}" || [[ -d "${env_root}/${env_name}" ]]
 }
 
 create_env_if_missing() {
@@ -152,6 +157,17 @@ github_fast_url() {
   fi
 }
 
+download_fast_url() {
+  local url="$1"
+  if [[ -n "${T2AV_GITHUB_MIRROR_PREFIX}" ]] && [[ "${url}" == https://github.com/* || "${url}" == https://raw.githubusercontent.com/* ]]; then
+    github_fast_url "${url}"
+  elif [[ -n "${T2AV_HF_MIRROR_ENDPOINT}" ]] && [[ "${url}" == https://huggingface.co/* ]]; then
+    printf '%s/%s\n' "${T2AV_HF_MIRROR_ENDPOINT%/}" "${url#https://huggingface.co/}"
+  else
+    printf '%s\n' "${url}"
+  fi
+}
+
 download_file() {
   local url="$1"
   local destination="$2"
@@ -161,11 +177,21 @@ download_file() {
   fi
   local tmp="${destination}.part"
   local fast_url
-  fast_url="$(github_fast_url "${url}")"
-  rm -f "${tmp}"
-  if ! curl -L --retry 5 --retry-delay 2 -o "${tmp}" "${fast_url}"; then
-    rm -f "${tmp}"
-    curl -L --retry 5 --retry-delay 2 -o "${tmp}" "${url}"
+  fast_url="$(download_fast_url "${url}")"
+  local curl_args=(
+    --fail
+    --location
+    --http1.1
+    --connect-timeout 30
+    --retry 10
+    --retry-delay 5
+    --retry-max-time 1800
+    --retry-all-errors
+    --continue-at -
+    --output "${tmp}"
+  )
+  if ! curl "${curl_args[@]}" "${fast_url}"; then
+    curl "${curl_args[@]}" "${url}"
   fi
   mv "${tmp}" "${destination}"
 }
@@ -176,13 +202,39 @@ ensure_system_deps() {
   apt-get install -y ffmpeg git curl wget libgl1 pkg-config build-essential libavdevice-dev libavfilter-dev libavformat-dev libavcodec-dev libavutil-dev libswscale-dev libswresample-dev
 }
 
-ensure_aesthetic_env() {
-  local env_name="t2av-aesthetic"
-  local pkg_dir="${CODE_ROOT}/Objective/Video/aesthetic-predictor-v2-5"
+ensure_core_env() {
+  local env_name="${T2AV_CORE_ENV}"
+  local marker="${CACHE_ROOT}/markers/${env_name}-core-v2.ready"
+  local aesthetic_dir="${CODE_ROOT}/Objective/Video/aesthetic-predictor-v2-5"
+  local audiobox_dir="${CODE_ROOT}/Objective/Audio/audiobox-aesthetics"
+  local imagebind_dir="${CODE_ROOT}/Objective/Similarity/ImageBind-main"
+  local audiobox_checkpoint="${CACHE_ROOT}/weights/audiobox-aesthetics/checkpoint.pt"
+  local pytorchvideo_tar="${T2AV_DOWNLOAD_DIR}/pytorchvideo-6cdc929315aab1b5674b6dcf73b16ec99147735f.tar.gz"
+  if [[ -f "${marker}" ]] && conda_env_exists "${env_name}"; then
+    return 0
+  fi
   create_env_if_missing "${env_name}" 3.10
+  mkdir -p "$(dirname "${marker}")"
   conda_run_in "${env_name}" pip install --upgrade pip
-  conda_run_in "${env_name}" pip install --index-url https://download.pytorch.org/whl/cu121 torch torchvision torchaudio
-  conda_run_in "${env_name}" pip install -e "${pkg_dir}" opencv-python-headless pillow
+  conda_run_in "${env_name}" pip install --index-url https://download.pytorch.org/whl/cu121 torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1
+  conda_run_in "${env_name}" pip install numpy==1.26.4 scipy pandas pyyaml scikit-learn seaborn matplotlib tqdm librosa soundfile opencv-python-headless pillow requests huggingface_hub
+  conda_run_in "${env_name}" pip install timm ftfy regex einops iopath types-regex decord transformers==4.48.0 "accelerate>=0.30" "safetensors>=0.5.3" "rich>=13.9.4" "setuptools<81" submitit
+  conda_run_in "${env_name}" pip install -e "${aesthetic_dir}"
+  conda_run_in "${env_name}" pip install -e "${audiobox_dir}"
+  download_file "https://dl.fbaipublicfiles.com/audiobox-aesthetics/checkpoint.pt" "${audiobox_checkpoint}"
+  download_file "https://github.com/facebookresearch/pytorchvideo/archive/6cdc929315aab1b5674b6dcf73b16ec99147735f.tar.gz" "${pytorchvideo_tar}"
+  mkdir -p "${CACHE_ROOT}/weights/imagebind"
+  ln -sfn "${CACHE_ROOT}/weights/imagebind" "${imagebind_dir}/.checkpoints"
+  conda_run_in "${env_name}" pip install "${pytorchvideo_tar}"
+  conda_run_in "${env_name}" pip install -e "${imagebind_dir}" --no-deps
+  conda_run_in "${env_name}" python -c "from aesthetic_predictor_v2_5 import convert_v2_5_from_siglip; convert_v2_5_from_siglip('${aesthetic_dir}/models/aesthetic_predictor_v2_5.pth', low_cpu_mem_usage=True, trust_remote_code=True); print('aesthetic predictor ready')"
+  conda_run_in "${env_name}" python -c "from audiobox_aesthetics.infer import initialize_predictor; initialize_predictor('${audiobox_checkpoint}'); print('audiobox checkpoint ready')"
+  (cd "${imagebind_dir}" && conda_run_in "${env_name}" python -c "from imagebind.models import imagebind_model; imagebind_model.imagebind_huge(pretrained=True); print('imagebind checkpoint ready')")
+  touch "${marker}"
+}
+
+ensure_aesthetic_env() {
+  ensure_core_env
 }
 
 ensure_dover_env() {
@@ -198,40 +250,15 @@ ensure_dover_env() {
 }
 
 ensure_audiobox_env() {
-  local env_name="t2av-audiobox"
-  local pkg_dir="${CODE_ROOT}/Objective/Audio/audiobox-aesthetics"
-  local checkpoint_path="${CACHE_ROOT}/weights/audiobox-aesthetics/checkpoint.pt"
-  create_env_if_missing "${env_name}" 3.10
-  conda_run_in "${env_name}" pip install --upgrade pip
-  conda_run_in "${env_name}" pip install --index-url https://download.pytorch.org/whl/cu121 torch torchvision torchaudio
-  conda_run_in "${env_name}" pip install -e "${pkg_dir}"
-  conda_run_in "${env_name}" pip install requests huggingface_hub
-  download_file "https://dl.fbaipublicfiles.com/audiobox-aesthetics/checkpoint.pt" "${checkpoint_path}"
-  conda_run_in "${env_name}" python -c "from audiobox_aesthetics.infer import initialize_predictor; initialize_predictor('${checkpoint_path}'); print('audiobox checkpoint ready')"
+  ensure_core_env
 }
 
 ensure_nisqa_env() {
-  local env_name="t2av-nisqa"
-  create_env_if_missing "${env_name}" 3.9
-  conda_run_in "${env_name}" pip install --upgrade pip
-  conda_run_in "${env_name}" pip install --index-url https://download.pytorch.org/whl/cpu torch torchaudio
-  conda_run_in "${env_name}" pip install librosa soundfile pandas pyyaml scikit-learn seaborn matplotlib tqdm scipy numpy==1.26.4
+  ensure_core_env
 }
 
 ensure_imagebind_env() {
-  local env_name="t2av-imagebind"
-  local pkg_dir="${CODE_ROOT}/Objective/Similarity/ImageBind-main"
-  local pytorchvideo_tar="${T2AV_DOWNLOAD_DIR}/pytorchvideo-6cdc929315aab1b5674b6dcf73b16ec99147735f.tar.gz"
-  create_env_if_missing "${env_name}" 3.10
-  conda_run_in "${env_name}" pip install --upgrade pip
-  conda_run_in "${env_name}" pip install --index-url https://download.pytorch.org/whl/cu121 torch torchvision torchaudio
-  conda_run_in "${env_name}" pip install timm ftfy regex einops iopath numpy types-regex decord
-  download_file "https://github.com/facebookresearch/pytorchvideo/archive/6cdc929315aab1b5674b6dcf73b16ec99147735f.tar.gz" "${pytorchvideo_tar}"
-  mkdir -p "${CACHE_ROOT}/weights/imagebind"
-  ln -sfn "${CACHE_ROOT}/weights/imagebind" "${pkg_dir}/.checkpoints"
-  conda_run_in "${env_name}" pip install "${pytorchvideo_tar}"
-  conda_run_in "${env_name}" pip install -e "${pkg_dir}" --no-deps
-  (cd "${pkg_dir}" && conda_run_in "${env_name}" python -c "from imagebind.models import imagebind_model; imagebind_model.imagebind_huge(pretrained=True); print('imagebind checkpoint ready')")
+  ensure_core_env
 }
 
 ensure_synchformer_env() {

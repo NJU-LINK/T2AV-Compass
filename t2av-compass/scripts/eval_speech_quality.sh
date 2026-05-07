@@ -10,7 +10,7 @@ ensure_cache_layout
 ensure_conda
 ensure_nisqa_env
 if [[ ${SETUP_ONLY} -eq 1 ]]; then
-  echo t2av-nisqa ready
+  echo ${T2AV_CORE_ENV} ready
   exit 0
 fi
 INPUT_DIR=$(resolve_path ${1:-input})
@@ -20,7 +20,7 @@ require_dir ${INPUT_DIR}
 require_video_files ${INPUT_DIR}
 mkdir -p ${OUTPUT_DIR}/nisqa_output
 bash ${CODE_ROOT}/scripts/extract_audio.sh ${INPUT_DIR} ${AUDIO_DIR}
-conda_run_in t2av-nisqa python ${CODE_ROOT}/Objective/Audio/NISQA/run_predict.py --mode predict_dir --pretrained_model ${CODE_ROOT}/Objective/Audio/NISQA/weights/nisqa.tar --data_dir ${AUDIO_DIR} --output_dir ${OUTPUT_DIR}/nisqa_output
+conda_run_in ${T2AV_CORE_ENV} python ${CODE_ROOT}/Objective/Audio/NISQA/run_predict.py --mode predict_dir --pretrained_model ${CODE_ROOT}/Objective/Audio/NISQA/weights/nisqa.tar --data_dir ${AUDIO_DIR} --output_dir ${OUTPUT_DIR}/nisqa_output
 ${PYTHON_BIN} - <<PY
 import csv
 import json

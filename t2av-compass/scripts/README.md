@@ -85,7 +85,7 @@ bash eval_lipsync.sh input Output  # For talking-face videos
 Each script automatically:
 
 1. **Checks for conda installation**
-2. **Creates conda environment** (if not exists) with naming pattern `t2av-<metric>`
+2. **Creates the required conda environments** if they do not exist
 3. **Installs dependencies** on first run
 4. **Activates environment** before evaluation
 5. **Deactivates environment** after completion
@@ -94,13 +94,12 @@ Each script automatically:
 
 | Environment | Used By | Python Version |
 |-------------|---------|----------------|
-| `t2av-aesthetic` | Video Aesthetic (VA) | 3.10 |
+| `t2av-core` | Video Aesthetic (VA), Audio Aesthetic (AA), Speech Quality (SQ), T-V, T-A, A-V alignment | 3.10 |
 | `t2av-dover` | Video Technical (VT) | 3.10 |
-| `t2av-audiobox` | Audio Aesthetic (AA) | 3.10 |
-| `t2av-nisqa` | Speech Quality (SQ) | 3.8 |
-| `t2av-imagebind` | T-V, T-A, A-V alignment | 3.10 |
-| `t2av-synchformer` | AV Sync (DeSync) | 3.8 |
+| `t2av-synchformer` | AV Sync (DeSync) | 3.10 |
 | `t2av-latentsync` | Lip-Sync (LS) | 3.10 |
+
+Set `T2AV_CORE_ENV` before setup if you need a different shared environment name.
 
 ### Manual Environment Management
 
@@ -109,10 +108,10 @@ Each script automatically:
 conda env list | grep t2av
 
 # Activate specific environment
-conda activate t2av-aesthetic
+conda activate t2av-core
 
 # Remove environment (if needed)
-conda remove -n t2av-aesthetic --all
+conda remove -n t2av-core --all
 ```
 
 ## 📊 Output Format
@@ -187,7 +186,7 @@ brew install ffmpeg
 **4. Environment conflicts**
 ```bash
 # Remove and recreate environment
-conda remove -n t2av-aesthetic --all
+conda remove -n t2av-core --all
 # Run script again to recreate
 ```
 
@@ -196,7 +195,7 @@ conda remove -n t2av-aesthetic --all
 
 - **Audio Extraction**: Audio is automatically extracted from videos when needed. Extracted audio files are saved to `<output_dir>/audio_wav/` and reused across metrics.
 
-- **Environment Isolation**: Each metric uses a separate conda environment to prevent dependency conflicts. This is intentional and ensures reproducibility.
+- **Environment Isolation**: Compatible objective metrics share `t2av-core`. DOVER, Synchformer, and LatentSync stay isolated because their pinned dependencies are more likely to conflict.
 
 - **First Run**: The first run of each script will take longer due to environment creation and dependency installation. Subsequent runs will be faster.
 

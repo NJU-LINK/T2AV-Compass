@@ -10,7 +10,7 @@ ensure_cache_layout
 ensure_conda
 ensure_aesthetic_env
 if [[ ${SETUP_ONLY} -eq 1 ]]; then
-  echo t2av-aesthetic ready
+  echo ${T2AV_CORE_ENV} ready
   exit 0
 fi
 INPUT_DIR=$(resolve_path ${1:-input})
@@ -19,4 +19,4 @@ NUM_FRAMES=${3:-10}
 require_dir ${INPUT_DIR}
 require_video_files ${INPUT_DIR}
 mkdir -p ${OUTPUT_DIR}
-conda_run_in t2av-aesthetic python ${CODE_ROOT}/scripts/batch_video_aesthetic.py --video_dir ${INPUT_DIR} --output ${OUTPUT_DIR}/video_aesthetic.json --num_frames ${NUM_FRAMES} --device cuda
+conda_run_in ${T2AV_CORE_ENV} python ${CODE_ROOT}/scripts/batch_video_aesthetic.py --video_dir ${INPUT_DIR} --output ${OUTPUT_DIR}/video_aesthetic.json --num_frames ${NUM_FRAMES} --device cuda

@@ -3,8 +3,10 @@
 [![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://nju-link.github.io/T2AV-Compass/)
 [![Dataset](https://img.shields.io/badge/🤗-Dataset-yellow)](https://huggingface.co/datasets/NJU-LINK/T2AV-Compass)
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-red)](https://arxiv.org/abs/2512.21094)
+[![ICML 2026](https://img.shields.io/badge/ICML-2026_Accepted-green)](#citation)
 
 > Objective evaluation on Linux is now wrapped by two top-level scripts: `setup_objective.sh` and `run_objective_batch.sh`.
+> T2AV-Compass is accepted to ICML 2026.
 
 ## Objective Reproduction on Linux
 
@@ -18,6 +20,13 @@ Default relative layout:
 - Output directory: `Output/`
 - Cache root: `.cache/t2av-cache`
 - Conda envs: `.cache/conda/envs`
+
+The objective pipeline now uses a compact default environment layout:
+
+- `t2av-core`: VA, AA, SQ, T-V, T-A, and A-V
+- `t2av-dover`: VT
+- `t2av-synchformer`: DeSync
+- `t2av-latentsync`: LS
 
 ### 1. Clone the repository
 
@@ -35,9 +44,10 @@ Optional environment overrides before setup:
 ```bash
 export T2AV_CACHE_ROOT=/path/to/cache-root
 export T2AV_CONDA_ROOT=/path/to/conda-root
-export HF_ENDPOINT=https://huggingface.co
-# In mainland China, set this explicitly instead:
-# export HF_ENDPOINT=https://hf-mirror.com
+export T2AV_CORE_ENV=t2av-core
+# Default is https://hf-mirror.com for server-side reproducibility in mainland China.
+# Override with the official endpoint when it is reachable in your region:
+# export HF_ENDPOINT=https://huggingface.co
 # optional when GitHub downloads need a mirror
 export T2AV_GITHUB_MIRROR_PREFIX=https://your-mirror.example
 ```
@@ -51,7 +61,7 @@ bash setup_objective.sh
 What this script does:
 
 - installs system packages such as `ffmpeg`
-- creates all required conda environments
+- creates the required conda environments, using the shared `t2av-core` environment for compatible objective metrics
 - downloads checkpoints for DOVER, AudioBox, ImageBind, Synchformer, and LatentSync
 - pre-creates cache directories under `.cache/` by default
 
@@ -167,8 +177,8 @@ bash t2av-compass/scripts/eval_lipsync.sh input Output
 ## Notes
 
 - No manual Hugging Face login is required for the checkpoints used in the validated objective flow.
-- The default Hugging Face endpoint is the official `https://huggingface.co`. In mainland China, explicitly set `HF_ENDPOINT=https://hf-mirror.com`; in other regions this is usually unnecessary.
-- You can override cache and Conda locations with `T2AV_CACHE_ROOT`, `T2AV_CONDA_ROOT`, or `T2AV_CONDA_EXE`.
+- The default Hugging Face endpoint for objective setup is `https://hf-mirror.com` to keep server-side reproduction stable in mainland China. Set `HF_ENDPOINT=https://huggingface.co` when the official endpoint is reachable and preferred.
+- You can override cache and Conda locations with `T2AV_CACHE_ROOT`, `T2AV_CONDA_ROOT`, `T2AV_CONDA_EXE`, or rename the shared objective environment with `T2AV_CORE_ENV`.
 - The first `DeSync` run downloads an additional large MotionFormer checkpoint.
 - `LS` is intended for talking-face videos. For non-talking-face content, the score is not meaningful even if the script finishes.
 - Re-running `setup_objective.sh` or `run_objective_batch.sh` is supported.
@@ -180,6 +190,21 @@ bash t2av-compass/scripts/eval_lipsync.sh input Output
 - mirror/network failures during checkpoint download: retry first; if needed, set `HF_ENDPOINT` or `T2AV_GITHUB_MIRROR_PREFIX` before running setup.
 - `LS` fails on a batch with no visible speaking face: use talking-face videos for this metric.
 
+## Citation
+
+```bibtex
+@inproceedings{cao2026t2avcompass,
+  title         = {T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation},
+  author        = {Cao, Zhe and Wang, Tao and Wang, Jiaming and Wang, Yanghai and Zhang, Yuanxing and Chen, Jialu and Deng, Miao and Wang, Jiahao and Guo, Yubin and Liao, Chenxi and Zhang, Yize and Zhang, Zhaoxiang and Liu, Jiaheng},
+  booktitle     = {International Conference on Machine Learning (ICML)},
+  year          = {2026},
+  eprint        = {2512.21094},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2512.21094},
+}
+```
+
 ## Project Overview
 
 T2AV-Compass is a unified benchmark for evaluating Text-to-Audio-Video generation across:
@@ -188,4 +213,4 @@ T2AV-Compass is a unified benchmark for evaluating Text-to-Audio-Video generatio
 - cross-modal alignment and synchronization
 - checklist-based subjective evaluation
 
-The benchmark includes 500 prompts and associated checklist annotations. For subjective evaluation and repository internals, see `t2av-compass/README.md`.
+The ICML 2026 version evaluates 15 representative T2AV systems: 7 closed-source end-to-end models, 3 open-source end-to-end models, and 5 composed generation pipelines. The benchmark includes 500 prompts and associated checklist annotations. For subjective evaluation and repository internals, see `t2av-compass/README.md`.

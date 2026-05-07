@@ -10,7 +10,7 @@ ensure_cache_layout
 ensure_conda
 ensure_imagebind_env
 if [[ ${SETUP_ONLY} -eq 1 ]]; then
-  echo t2av-imagebind ready
+  echo ${T2AV_CORE_ENV} ready
   exit 0
 fi
 INPUT_DIR=$(resolve_path ${1:-input})
@@ -23,7 +23,7 @@ mkdir -p ${OUTPUT_DIR}
 bash ${CODE_ROOT}/scripts/extract_audio.sh ${INPUT_DIR} ${AUDIO_DIR}
 (
   cd ${IMAGEBIND_DIR}
-  conda_run_in t2av-imagebind python - <<PY
+  conda_run_in ${T2AV_CORE_ENV} python - <<PY
 import json
 from pathlib import Path
 import torch
