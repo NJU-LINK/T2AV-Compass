@@ -45,6 +45,7 @@
     <div><sup>1</sup> NJU-LINK Team, Nanjing University</div>
     <div><sup>2</sup> Kling Team, Kuaishou Technology</div>
     <div><sup>3</sup> Institute of Automation, Chinese Academy of Sciences</div>
+    <div class="venue"><b>Accepted to ICML 2026</b></div>
     <div class="note"><sup>*</sup> Equal Contribution &nbsp;&nbsp; <sup>†</sup> Corresponding Author</div>
     <div class="note emails"><code>zhecao@smail.nju.edu.cn</code> · <code>liujiaheng@nju.edu.cn</code></div>
   </div>
@@ -78,7 +79,7 @@
     <section class="section" id="abstract">
       <h2>Abstract</h2>
       <p>
-        Text-to-Audio-Video (T2AV) generation aims to synthesize temporally coherent video and semantically synchronized audio from natural language, yet its evaluation remains fragmented, often relying on unimodal metrics or narrowly scoped benchmarks that fail to capture cross-modal alignment, instruction following, and perceptual realism under complex prompts. To address this limitation, we present <b>T2AV-Compass</b>, a unified benchmark for comprehensive evaluation of T2AV systems, consisting of 500 diverse and complex prompts constructed via a taxonomy-driven pipeline to ensure semantic richness and physical plausibility. Besides, T2AV-Compass introduces a dual-level evaluation framework that integrates objective signal-level metrics for video quality, audio quality, and cross-modal alignment with a subjective MLLM-as-a-Judge protocol for instruction following and realism assessment. Extensive evaluation of 11 representative T2AV systems reveals that even the strongest models fall substantially short of human-level realism and cross-modal consistency, with persistent failures in audio realism, fine-grained synchronization, instruction following, and etc. These results indicate significant improvement room for future models and highlight the value of T2AV-Compass as a challenging and diagnostic testbed for advancing text-to-audio-video generation.
+        Text-to-Audio-Video (T2AV) generation aims to synthesize temporally coherent video and semantically synchronized audio from natural language, yet its evaluation remains fragmented, often relying on unimodal metrics or narrowly scoped benchmarks that fail to capture cross-modal alignment, instruction following, and perceptual realism under complex prompts. To address this limitation, we present <b>T2AV-Compass</b>, a unified benchmark for comprehensive evaluation of T2AV systems, consisting of 500 diverse and complex prompts constructed via a taxonomy-driven pipeline to ensure semantic richness and physical plausibility. Besides, T2AV-Compass introduces a dual-level evaluation framework that integrates objective signal-level metrics for video quality, audio quality, and cross-modal alignment with a subjective MLLM-as-a-Judge protocol for instruction following and realism assessment. Extensive evaluation of 15 representative T2AV systems reveals that even the strongest models fall substantially short of human-level realism and cross-modal consistency, with persistent failures in audio realism, fine-grained synchronization, and instruction following. These results indicate significant improvement room for future models and highlight the value of T2AV-Compass as a challenging and diagnostic testbed for advancing text-to-audio-video generation.
       </p>
     </section>
 
@@ -150,7 +151,7 @@
         </li>
         <li>
           <b>Extensive Benchmarking and Empirical Insights:</b>
-          We conduct a systematic evaluation of 11 state-of-the-art T2AV systems, including leading proprietary models like Veo-3.1 and Kling-2.6.
+          We conduct a systematic evaluation of 15 state-of-the-art T2AV systems, including leading proprietary models like Veo-3.1 and Kling-2.6.
           Our analysis unveils a critical "Audio Realism Bottleneck," revealing that current models struggle to synthesize physically grounded audio textures
           that match the fidelity of their visual counterparts.
         </li>
@@ -403,9 +404,9 @@
       <h2>Experiments</h2>
       <h3>Main Results</h3>
       <p>
-        We evaluate 11 representative T2AV systems, comprising of 7 closed-source end-to-end models, 2 open-source end-to-end models,
-        and 2 composed generation pipelines: Veo-3.1, Sora-2, Kling-2.6, Wan-2.6 and Wan-2.5, Seedance-1.5, PixVerse-V5.5,
-        the open-source Ovi-1.1 and JavisDiT, and two modular pipelines Wan-2.2 + HunyuanVideo-Foley and AudioLDM2 + MTV.
+        We evaluate 15 representative T2AV systems, comprising 7 closed-source end-to-end models, 3 open-source end-to-end models,
+        and 5 composed generation pipelines: Veo-3.1, Sora-2, Kling-2.6, Wan-2.6, Wan-2.5, Seedance-1.5, PixVerse-V5.5,
+        the open-source Ovi-1.1, LTX-2, and JavisDiT, plus modular pipelines built from Wan-2.2, HunyuanVideo-1.5, Hunyuan-Foley, MMAudio, AudioLDM2, and MTV.
       </p>
       <p>Our analysis of the results yields the following key observations:</p>
       <ul>
@@ -587,10 +588,11 @@
           <button class="copybtn" id="copybtn" onclick="copyBibtex()">Copy</button>
         </div>
         <hr class="sep" />
-        <pre><code id="bibtex">@misc{cao2025t2avcompass,
+        <pre><code id="bibtex">@inproceedings{cao2026t2avcompass,
   title         = {T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation},
   author        = {Cao, Zhe and Wang, Tao and Wang, Jiaming and Wang, Yanghai and Zhang, Yuanxing and Chen, Jialu and Deng, Miao and Wang, Jiahao and Guo, Yubin and Liao, Chenxi and Zhang, Yize and Zhang, Zhaoxiang and Liu, Jiaheng},
-  year          = {2025},
+  booktitle     = {International Conference on Machine Learning (ICML)},
+  year          = {2026},
   eprint        = {2512.21094},
   archivePrefix = {arXiv},
   primaryClass  = {cs.CV},

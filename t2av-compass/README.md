@@ -21,7 +21,12 @@ Default validated paths:
 
 ## Objective Evaluation
 
-The root wrapper calls into `scripts/eval_all_metrics.sh` with repository-relative paths.
+The root wrapper calls into `scripts/eval_all_metrics.sh` with repository-relative paths. The objective setup uses a compact environment layout by default:
+
+- `t2av-core`: VA, AA, SQ, T-V, T-A, and A-V
+- `t2av-dover`: VT
+- `t2av-synchformer`: DeSync
+- `t2av-latentsync`: LS
 
 You can still run individual metrics for debugging from the repository root:
 
@@ -37,7 +42,7 @@ bash t2av-compass/scripts/eval_av_sync.sh input Output
 bash t2av-compass/scripts/eval_lipsync.sh input Output
 ```
 
-Each metric manages its own conda environment automatically.
+Each script still manages setup automatically. Compatible metrics share `t2av-core`; DOVER, Synchformer, and LatentSync remain isolated to avoid dependency conflicts.
 
 ## Subjective Evaluation
 
@@ -65,5 +70,6 @@ Environment overrides:
 - `T2AV_CACHE_ROOT`: move model/cache files outside the repository
 - `T2AV_CONDA_ROOT`: move Conda env and package caches outside the repository
 - `T2AV_CONDA_EXE`: point to a specific Conda installation if `conda` is not on `PATH`
+- `T2AV_CORE_ENV`: rename the shared objective environment, default `t2av-core`
 - `HF_ENDPOINT`: switch to a Hugging Face mirror when needed. In mainland China, prefer `https://hf-mirror.com`.
 - `T2AV_GITHUB_MIRROR_PREFIX`: prefix GitHub downloads with a mirror URL when needed

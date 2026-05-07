@@ -10,7 +10,7 @@ ensure_cache_layout
 ensure_conda
 ensure_audiobox_env
 if [[ ${SETUP_ONLY} -eq 1 ]]; then
-  echo t2av-audiobox ready
+  echo ${T2AV_CORE_ENV} ready
   exit 0
 fi
 INPUT_DIR=$(resolve_path ${1:-input})
@@ -20,4 +20,4 @@ require_dir ${INPUT_DIR}
 require_video_files ${INPUT_DIR}
 mkdir -p ${OUTPUT_DIR}
 bash ${CODE_ROOT}/scripts/extract_audio.sh ${INPUT_DIR} ${AUDIO_DIR}
-conda_run_in t2av-audiobox python ${CODE_ROOT}/scripts/run_audiobox_batch.py --audio_dir ${AUDIO_DIR} --output ${OUTPUT_DIR}/audio_aesthetic.json --ckpt ${CACHE_ROOT}/weights/audiobox-aesthetics/checkpoint.pt
+conda_run_in ${T2AV_CORE_ENV} python ${CODE_ROOT}/scripts/run_audiobox_batch.py --audio_dir ${AUDIO_DIR} --output ${OUTPUT_DIR}/audio_aesthetic.json --ckpt ${CACHE_ROOT}/weights/audiobox-aesthetics/checkpoint.pt

@@ -3,8 +3,10 @@
 [![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://nju-link.github.io/T2AV-Compass/)
 [![Dataset](https://img.shields.io/badge/🤗-Dataset-yellow)](https://huggingface.co/datasets/NJU-LINK/T2AV-Compass)
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-red)](https://arxiv.org/abs/2512.21094)
+[![ICML 2026](https://img.shields.io/badge/ICML-2026_Accepted-green)](#引用)
 
 > English version: [README.md](README.md)
+> T2AV-Compass 已被 ICML 2026 接收。
 
 ## 📖 摘要
 
@@ -22,7 +24,7 @@
   - **客观评估**：视频质量（VT, VA）、音频质量（AA, SQ）、跨模态对齐（T-A, T-V, A-V, DeSync, LatentSync）
   - **主观评估（MLLM-as-a-Judge）**：基于 checklist 的可解释评估，覆盖 **指令跟随** 和 **感知真实性**
 
-- **广泛基准测试**：系统评估了 11 个最先进的 T2AV 系统，包括 Veo-3.1、Sora-2、Kling-2.6、Wan-2.5/2.6、Seedance-1.5、PixVerse-V5.5、Ovi-1.1、JavisDiT 以及组合管道。
+- **广泛基准测试**：系统评估了 15 个代表性 T2AV 系统，包括 7 个闭源端到端模型、3 个开源端到端模型，以及 5 个级联生成管线。
 
 ## 📊 评估指标
 
@@ -129,14 +131,12 @@ bash scripts/batch_eval_all.sh input Data/prompts.json Output
 
 ### 按指标配置 Conda 环境
 
-每个客观指标使用**独立 conda 环境**以避免依赖冲突。需创建的环境名称：
+客观指标默认使用压缩后的 conda 环境布局，兼容指标共享 `t2av-core`，高冲突组件继续隔离。需创建的环境名称：
 
-- `t2av-aesthetic` — 视频美学（Aesthetic Predictor V2.5）
+- `t2av-core` — 视频美学（VA）、音频美学（AA）、语音质量（SQ）、文本/音频/视频跨模态对齐（T-V、T-A、A-V）
 - `t2av-dover` — 视频技术质量（DOVER）
-- `t2av-audiobox` — 音频质量（AudioBox Aesthetics）
-- `t2av-imagebind-vt` — 视频–文本相似度（ImageBind）
-- `t2av-imagebind-at` — 音频–文本相似度（ImageBind）
 - `t2av-synchformer` — 音视频同步（Synchformer）
+- `t2av-latentsync` — 唇形同步（LatentSync）
 
 各环境的创建命令、依赖安装及模型权重下载见 **[readme.md](readme.md)** 第 4 节。
 
@@ -146,7 +146,7 @@ bash scripts/batch_eval_all.sh input Data/prompts.json Output
 cd t2av-compass
 # 1) 将待评测视频放入 input/
 # 2) 准备 Data/prompts.json 或 input/prompts.json（含 video_prompt、audio_prompt）
-# 3) 按 readme.md 创建各 conda 环境并下载所需模型权重
+# 3) 运行根目录 setup_objective.sh 创建压缩后的 conda 环境并下载所需模型权重
 # 4) 运行：
 bash scripts/batch_eval_all.sh input Data/prompts.json Output
 ```
@@ -280,19 +280,17 @@ bash scripts/eval_lipsync.sh ../input ../Output
 
 #### 环境管理
 
-脚本会自动为每个指标创建独立的 conda 环境，避免依赖冲突：
+脚本会自动创建压缩后的 conda 环境布局，兼顾安装速度和依赖隔离：
 
-- `t2av-aesthetic`: 视频美学质量
+- `t2av-core`: 视频美学、音频美学、语音质量、跨模态对齐
 - `t2av-dover`: 视频技术质量
-- `t2av-audiobox`: 音频美学质量
-- `t2av-nisqa`: 语音质量
-- `t2av-imagebind`: 跨模态对齐
 - `t2av-synchformer`: 音视频同步
+- `t2av-latentsync`: 唇形同步
 
 手动激活环境：
 
 ```bash
-conda activate t2av-aesthetic
+conda activate t2av-core
 ```
 
 ### 输出格式
@@ -365,10 +363,11 @@ python eval_realism.py \
 如果该工作对你的研究有帮助，欢迎引用：
 
 ```bibtex
-@misc{cao2025t2avcompass,
+@inproceedings{cao2026t2avcompass,
   title         = {T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation},
   author        = {Cao, Zhe and Wang, Tao and Wang, Jiaming and Wang, Yanghai and Zhang, Yuanxing and Chen, Jialu and Deng, Miao and Wang, Jiahao and Guo, Yubin and Liao, Chenxi and Zhang, Yize and Zhang, Zhaoxiang and Liu, Jiaheng},
-  year          = {2025},
+  booktitle     = {International Conference on Machine Learning (ICML)},
+  year          = {2026},
   eprint        = {2512.21094},
   archivePrefix = {arXiv},
   primaryClass  = {cs.CV},

@@ -10,7 +10,7 @@ ensure_cache_layout
 ensure_conda
 ensure_imagebind_env
 if [[ ${SETUP_ONLY} -eq 1 ]]; then
-  echo t2av-imagebind ready
+  echo ${T2AV_CORE_ENV} ready
   exit 0
 fi
 INPUT_DIR=$(resolve_path ${1:-input})
@@ -23,5 +23,5 @@ require_file ${PROMPTS_JSON}
 mkdir -p ${OUTPUT_DIR}
 (
   cd ${IMAGEBIND_DIR}
-  conda_run_in t2av-imagebind python batch_inference_video_text.py --json_file ${PROMPTS_JSON} --video_dir ${INPUT_DIR} --output_file ${OUTPUT_DIR}/text_video_alignment.json --device cuda:0
+  conda_run_in ${T2AV_CORE_ENV} python batch_inference_video_text.py --json_file ${PROMPTS_JSON} --video_dir ${INPUT_DIR} --output_file ${OUTPUT_DIR}/text_video_alignment.json --device cuda:0
 )
