@@ -220,7 +220,9 @@ def calculate_statistics(results: List[Dict[str, Any]]) -> Dict[str, Any]:
     # 提取偏移和概率
     offsets = [r['predicted_offset_sec'] for r in successful_results]
     probabilities = [r['predicted_probability'] for r in successful_results]
-    
+    abs_offsets = [abs(r['predicted_offset_sec']) for r in successful_results]
+    stats['abs_offsets'] = np.mean(abs_offsets)
+
     # 偏移量统计
     stats['predicted_offset_sec'] = {
         'mean': float(np.mean(offsets)),
@@ -311,7 +313,7 @@ def batch_test_folder(folder_path: str, exp_name: str, device: str = 'cuda:0',
             'folder_path': folder_path,
             'total_videos': 0,
             'results': [],
-            'statistics': {
+            'summary': {
                 'total_videos': 0,
                 'successful_videos': 0,
                 'failed_videos': 0
@@ -365,7 +367,7 @@ def batch_test_folder(folder_path: str, exp_name: str, device: str = 'cuda:0',
             'model_config': cfg_path,
             'model_checkpoint': ckpt_path
         },
-        'statistics': statistics,
+        'summary': statistics,
         'results': results
     }
     
@@ -405,14 +407,14 @@ def main():
     print(f"\n{'='*80}")
     print("统计摘要")
     print(f"{'='*80}")
-    print(f"总数: {output['statistics']['total_count']}")
-    print(f"成功: {output['statistics']['successful_count']}")
-    print(f"失败: {output['statistics']['failed_count']}")
+    print(f"总数: {output['summary']['total_count']}")
+    print(f"成功: {output['summary']['successful_count']}")
+    print(f"失败: {output['summary']['failed_count']}")
     
-    if output['statistics']['successful_count'] > 0 and 'predicted_offset_sec' in output['statistics']:
-        offset_stats = output['statistics']['predicted_offset_sec']
-        prob_stats = output['statistics']['predicted_probability']
-        
+    if output['summary']['successful_count'] > 0 and 'predicted_offset_sec' in output['summary']:
+        offset_stats = output['summary']['predicted_offset_sec']
+        prob_stats = output['summary']['predicted_probability']
+
         print(f"\n预测偏移量 (秒):")
         print(f"  平均值: {offset_stats['mean']:.6f}")
         print(f"  标准差: {offset_stats['std']:.6f}")
@@ -427,8 +429,8 @@ def main():
         print(f"  最大值: {prob_stats['max']:.6f}")
         print(f"  中位数: {prob_stats['median']:.6f}")
         
-        if 'sync_quality_distribution' in output['statistics']:
-            sync_dist = output['statistics']['sync_quality_distribution']
+        if 'sync_quality_distribution' in output['summary']:
+            sync_dist = output['summary']['sync_quality_distribution']
             print(f"\n同步质量分布:")
             print(f"  优秀 (≤0.1s): {sync_dist['excellent_<=0.1s']}")
             print(f"  良好 (0.1-0.2s): {sync_dist['good_0.1-0.2s']}")
